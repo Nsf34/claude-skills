@@ -1,12 +1,13 @@
 ---
 name: social-media-engagement
 description: |
-  Automated social media engagement workflow across Instagram and Facebook. Finds relevant accounts, follows/likes them, reacts to posts, and drafts natural comments -- all via browser automation. Supports any brand with swappable brand context files (Table Clay is the default).
+  Automated social media engagement workflow across Instagram, Facebook, and TikTok. Finds relevant accounts, follows/likes them, reacts to posts, and drafts natural comments -- all via browser automation. Supports any brand with swappable brand context files (Table Clay is the default).
 
   Instagram: Explore-based discovery, follows, likes, comments.
   Facebook: Business Page engagement via Feed/Group/Page discovery, Page follows, reactions, comments, Group participation.
+  TikTok: FYP-based discovery, follows, likes, comments on creator videos.
 
-  Use when user says "run engagement", "Instagram engagement", "Facebook engagement", "social media engagement", "daily engagement run", "find accounts to follow", "run IG session", "run FB session", "run engagement on both", or "engagement for [brand name]".
+  Use when user says "run engagement", "Instagram engagement", "Facebook engagement", "TikTok engagement", "social media engagement", "daily engagement run", "find accounts to follow", "run IG session", "run FB session", "run TikTok session", "run TK session", "run engagement on all", "all platforms", or "engagement for [brand name]".
 
   Runs in Chrome via browser automation. Does NOT post original content or manage feeds -- only engages with others' content.
 ---
@@ -15,11 +16,11 @@ description: |
 
 ## Overview
 
-This skill runs engagement sessions on Instagram and/or Facebook. The goal is organic community growth by genuinely engaging with accounts in the brand's niche. Every action should feel like a real person -- a small brand owner -- naturally participating in a community they care about.
+This skill runs engagement sessions on Instagram, Facebook, and/or TikTok. The goal is organic community growth by genuinely engaging with accounts in the brand's niche. Every action should feel like a real person -- a small brand owner -- naturally participating in a community they care about.
 
 The skill is brand-agnostic. Brand context (products, target customers, voice, content themes) is loaded from a swappable reference file. Table Clay is the default.
 
-**Supported platforms:** Instagram, Facebook (Business Page)
+**Supported platforms:** Instagram, Facebook (Business Page), TikTok
 **Session time:** ~15-25 minutes per platform
 **Frequency:** Up to 2 sessions per platform per day (morning + evening)
 
@@ -33,10 +34,12 @@ Determine which platform to run based on what the user says:
 |-----------|--------|
 | "Instagram", "IG", "Insta" | Run Instagram workflow |
 | "Facebook", "FB" | Run Facebook workflow |
+| "TikTok", "TK" | Run TikTok workflow |
 | "social media engagement", "run engagement" (no platform specified) | Ask the user which platform |
-| "both", "both platforms", "IG and FB" | Run Instagram first, then Facebook after a **15-minute gap** |
+| "both", "IG and FB", "IG and TK", "FB and TK" | Run the two specified platforms sequentially with a **15-minute gap** |
+| "all", "all three", "all platforms" | Run Instagram first, then Facebook, then TikTok, each with a **15-minute gap** |
 
-**Never run both platforms simultaneously in one session.** If the user wants both, run them sequentially with a gap between.
+**Never run multiple platforms simultaneously in one session.** If the user wants more than one, run them sequentially with a gap between each.
 
 ---
 
@@ -62,6 +65,7 @@ Keep the brand context in mind throughout the entire session. It shapes how you 
 
 **Instagram:** Navigate to `https://www.instagram.com/`
 **Facebook:** Navigate to `https://www.facebook.com/`
+**TikTok:** Navigate to `https://www.tiktok.com/`
 
 **Rules:**
 1. Whatever account is signed into the browser is the correct one. Do NOT waste time verifying the handle, Page name, or asking the user to confirm. The browser is the source of truth.
@@ -77,10 +81,11 @@ Discovery and qualifying criteria are platform-specific. Read the appropriate re
 
 - **Instagram:** Read `references/instagram-workflow.md` for Explore-based discovery, qualifying criteria, and engagement actions
 - **Facebook:** Read `references/facebook-workflow.md` for Feed/Group/Page discovery, qualifying criteria for Pages and Groups, and engagement actions as a Business Page
+- **TikTok:** Read `references/tiktok-workflow.md` for FYP-based discovery, qualifying criteria for creators, and engagement actions
 
 **Before engaging any account**, cross-check the handle/name against the **engagement log** (`engagement-log.csv` in this skill's directory):
 - If the account appears in the log **for the current platform** -- skip it entirely
-- If the account appears in the log **for the other platform** -- don't skip, but add a note in the `notes` column (e.g., "also engaged on Instagram as @handle on 2026-02-09")
+- If the account appears in the log **for a different platform** -- don't skip, but add a note in the `notes` column (e.g., "also engaged on Instagram as @handle on 2026-02-09" or "also engaged on TikTok as @handle on 2026-02-10")
 
 This prevents wasted follows and helps you build a cross-platform map over time.
 
@@ -92,14 +97,15 @@ Run the engagement actions described in the platform-specific reference file:
 
 **Instagram:** Follow + Like + Comment (on selected posts)
 **Facebook:** Page Follow + React + Comment + Group Join/Participation
+**TikTok:** Follow + Like + Comment (on selected videos)
 
-For writing comments on either platform, read `references/comment-guide.md`. This covers:
+For writing comments on any platform, read `references/comment-guide.md`. This covers:
 - Platform-specific comment length and tone
 - Style distribution (compliments, questions, relatable, encouraging)
 - Hard rules that apply universally
 - Facebook reaction selection guide
 
-### Universal Hard Rules (both platforms)
+### Universal Hard Rules (all platforms)
 
 These apply regardless of platform or brand:
 
@@ -120,11 +126,11 @@ After each session, do **two things**:
 
 ```
 Session Summary -- [Date, Time]
-Platform: [Instagram / Facebook]
+Platform: [Instagram / Facebook / TikTok]
 Accounts followed: [count]
 Posts liked/reacted to: [count]
 Comments posted: [count]
-Groups joined: [count, Facebook only -- omit for Instagram]
+Groups joined: [count, Facebook only -- omit for Instagram and TikTok]
 Notable accounts found: [any standout accounts worth revisiting]
 Any issues: [rate limiting, CAPTCHAs, errors, or "none"]
 ```
@@ -141,11 +147,11 @@ date,time,platform,account_id,display_name,follower_count,account_type,content_t
 **Column definitions:**
 - `date` -- YYYY-MM-DD
 - `time` -- HH:MM (24-hour)
-- `platform` -- "instagram" or "facebook"
-- `account_id` -- @username (Instagram) or Page name/URL slug (Facebook)
+- `platform` -- "instagram", "facebook", or "tiktok"
+- `account_id` -- @username (Instagram, TikTok) or Page name/URL slug (Facebook)
 - `display_name` -- their profile or Page display name
 - `follower_count` -- approximate follower/friend count at time of engagement (use "unknown" if not visible)
-- `account_type` -- "profile" (Instagram), "page" (Facebook Page), "group" (Facebook Group)
+- `account_type` -- "profile" (Instagram), "creator" (TikTok), "page" (Facebook Page), "group" (Facebook Group)
 - `content_type` -- what they post (e.g., "pottery", "coffee lifestyle", "DIY crafts", "ceramics")
 - `action_taken` -- "follow", "follow+like", "follow+like+comment", "page_follow", "page_follow+react", "page_follow+react+comment", "group_join", "group_react", "group_react+comment"
 - `comment_text` -- the exact comment posted (blank if no comment)
@@ -160,7 +166,7 @@ The log also serves as a future resource for re-engagement. Accounts with good n
 
 ## Safety and Rate Limiting
 
-Both platforms actively detect and penalize bot-like behavior. These safeguards are non-negotiable.
+All platforms actively detect and penalize bot-like behavior. These safeguards are non-negotiable.
 
 ### Universal Rules
 
@@ -171,6 +177,7 @@ Both platforms actively detect and penalize bot-like behavior. These safeguards 
 5. **Cool-down after being flagged:**
    - Instagram: Wait at least **4-6 hours**
    - Facebook: Wait at least **6-12 hours** (Facebook penalties escalate more aggressively)
+   - TikTok: Wait at least **6-12 hours** (TikTok penalties escalate quickly to temporary bans)
 6. **Daily maximums:** No more than **2 sessions per platform per day.**
 
 ### Platform-Specific Safety
@@ -178,6 +185,7 @@ Both platforms actively detect and penalize bot-like behavior. These safeguards 
 For detailed stop triggers and safety protocols:
 - Instagram: See "Safety and Stop Triggers" in `references/instagram-workflow.md`
 - Facebook: See "Safety and Stop Triggers" in `references/facebook-workflow.md`
+- TikTok: See "Safety and Stop Triggers" in `references/tiktok-workflow.md`
 
 ---
 
@@ -189,6 +197,7 @@ On the very first run of this skill for a platform:
 2. Run a **smaller test session** (half the normal limits):
    - Instagram: 7 follows, 7 likes, 2 comments
    - Facebook: 4 Page follows, 6 reactions, 2 comments, 0-1 group joins
+   - TikTok: 5 follows, 6 likes, 2 comments
 3. Review the session summary with the user and ask if the engagement style feels right
 4. Initialize or verify the `engagement-log.csv` has the correct headers
 5. Adjust based on user feedback before running full sessions
@@ -199,11 +208,11 @@ This helps catch any issues (wrong account signed in, brand voice mismatch, plat
 
 ## Quick Reference: Session Limits
 
-| | Instagram | Facebook |
-|---|-----------|----------|
-| **Follows** | 15 per session | 8 per session |
-| **Likes/Reactions** | 15 per session | 12 per session |
-| **Comments** | 5 per session | 4 per session |
-| **Group joins** | n/a | 1-2 per session |
-| **Sessions/day** | 2 max | 2 max |
-| **Cool-down if flagged** | 4-6 hours | 6-12 hours |
+| | Instagram | Facebook | TikTok |
+|---|-----------|----------|--------|
+| **Follows** | 15 per session | 8 per session | 10 per session |
+| **Likes/Reactions** | 15 per session | 12 per session | 12 per session |
+| **Comments** | 5 per session | 4 per session | 4 per session |
+| **Group joins** | n/a | 1-2 per session | n/a |
+| **Sessions/day** | 2 max | 2 max | 2 max |
+| **Cool-down if flagged** | 4-6 hours | 6-12 hours | 6-12 hours |

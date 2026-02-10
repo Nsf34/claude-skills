@@ -3,6 +3,7 @@
 **Brand:** Table Clay
 **Handle (Instagram):** @tableclay
 **Handle (Facebook):** Whatever account is signed into the browser
+**Handle (TikTok):** @tableclay
 
 ## Products
 

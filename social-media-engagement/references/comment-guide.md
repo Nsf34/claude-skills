@@ -2,13 +2,13 @@
 
 Comments are the most important part of engagement. They represent the brand publicly and need to feel genuinely human -- like someone who is passionate about the niche naturally reacting to content they love.
 
-This guide covers universal rules, then platform-specific adjustments for Instagram and Facebook.
+This guide covers universal rules, then platform-specific adjustments for Instagram, TikTok, and Facebook.
 
 ---
 
-## Core Principles (Both Platforms)
+## Core Principles (All Platforms)
 
-1. **React to the SPECIFIC content.** Never write a comment that could apply to any post. Reference what you actually see -- the color, the shape, the technique, the setup, the reaction, the detail that makes the post unique.
+1. **React to the SPECIFIC content.** Never write a comment that could apply to any post. Reference what you actually see -- the color, the shape, the technique, the setup, the reaction, the detail that makes the post unique. For video content (especially TikTok), also reference what you heard -- the sound, the music, a voiceover, something the creator said.
 
 2. **Vary your style.** Rotate through compliments, questions, relatable reactions, and encouragement (see platform-specific distributions below). Never post 3 compliments in a row.
 
@@ -20,7 +20,7 @@ This guide covers universal rules, then platform-specific adjustments for Instag
 
 ---
 
-## Hard Rules (Both Platforms)
+## Hard Rules (All Platforms)
 
 These are non-negotiable. Breaking any of these makes the engagement look fake or spammy.
 
@@ -71,6 +71,49 @@ These are non-negotiable. Breaking any of these makes the engagement look fake o
 - "their focus is the best part"
 - "way better than screen time"
 - "love seeing families making stuff together"
+
+---
+
+## TikTok Comment Style
+
+**Length:** 1 sentence max. Fragments are common and natural. TikTok comments are the shortest of all three platforms.
+
+**Tone:** The most casual of all three platforms. Genuine reaction energy -- like blurting out a response while watching a video. Lowercase is the default. Fragments, incomplete thoughts, and brief reactions are native to TikTok.
+
+**Key difference from Instagram:** TikTok content is video, so comments should reference what you SAW or HEARD in the video, not a static image. Reference specific moments, sounds, the creator's voice, a technique shown, a transformation, or a reaction to something that happened. Time-based reactions ("the part where..." / "when the glaze melted...") are especially natural on TikTok.
+
+**Style Distribution:**
+- **35% Brief reactions** -- short, genuine reactions to what you just watched
+- **30% Specific compliments** -- praise about a specific moment, technique, or result seen in the video
+- **25% Curious questions** -- ask about process, materials, what happened next
+- **10% Encouraging/supportive** -- for progress videos, first attempts, learning moments
+
+**Examples by Content Type** (for tone reference only, never copy verbatim):
+
+*Pottery/ceramics:*
+- "the way that pulled together at the end"
+- "when the glaze came out of the kiln though"
+- "obsessed with that texture"
+- "how long did it take you to center like that"
+- "this is so satisfying to watch"
+
+*Coffee/lifestyle:*
+- "that pour was so smooth"
+- "need this exact morning"
+- "the sound of that grinder"
+- "wait what mug is that"
+
+*DIY/craft:*
+- "the transformation"
+- "did not expect that to turn out so good"
+- "how did you even start learning this"
+- "this makes me want to try clay"
+
+*Process/tutorial videos:*
+- "been looking for someone who explains it like this"
+- "the way you make it look easy"
+- "ok saving this for later"
+- "that technique at 0:15 though"
 
 ---
 
