@@ -8,9 +8,7 @@ Personal collection of Claude skills for use with Claude Code and Cowork.
 | Skill | Description |
 |-------|-------------|
 | **tableclay-instagram-engagement** | Automated Instagram engagement: 15 follows/likes and 5 comments per session via Explore tab discovery. |
-| **tableclay-prompts** | Table Clay brand prompts and context for consistent messaging. |
 | **native-image-ad-generator** | Creates native-looking image ads for social media campaigns. |
-| **nano-banana-product-swap** | Swaps product images into lifestyle scenes and templates. |
 | **product-placer** | Places product images into contextual lifestyle settings. |
 | **ad-swipe-engine** | Captures and analyzes competitor ads for creative inspiration. |
 | **product-research** | Deep product research and competitive analysis workflows. |
@@ -19,19 +17,15 @@ Personal collection of Claude skills for use with Claude Code and Cowork.
 | Skill | Description |
 |-------|-------------|
 | **seurat-meeting-notes** | Transforms meeting transcripts into polished Seurat Group notes with Next Steps, Key Takeaways, and Full Notes. |
-| **seurat-prompts** | Seurat Group brand prompts and context for consistent consulting outputs. |
 | **headline-writer** | Generates consulting slide headlines at three boldness levels (Conservative, Balanced, Bold). |
-| **slide-qc** | Quality checks presentation slides for formatting, content, and consistency. |
 | **qc-cookbook** | QC recipes and checklists for consulting deliverables. |
 | **survey-document-builder** | Converts survey wireframes into fully programmed quantitative survey documents. |
-| **cpg-consulting-copilot** | End-to-end CPG consulting assistant for research, strategy, and deliverables. |
 
 ### General / Meta
 | Skill | Description |
 |-------|-------------|
 | **email-responder** | Drafts email responses in Nick Fisher's writing style. |
 | **meta-ads-research** | Deep competitor research using Meta Ad Library with browser automation. |
-| **skill-builder** | Practical guide for building high-quality Claude skills from scratch. |
 | **skill-creator** | Advanced skill creation with eval runs, benchmarking, and automated testing. |
 
 ## Folder Structure
@@ -42,8 +36,6 @@ claude-skills/
 ├── ad-swipe-engine/
 │   ├── SKILL.md
 │   └── references/
-├── cpg-consulting-copilot/
-│   └── SKILL.md
 ├── email-responder/
 │   ├── SKILL.md
 │   └── references/
@@ -52,9 +44,6 @@ claude-skills/
 ├── meta-ads-research/
 │   ├── SKILL.md
 │   ├── assets/
-│   └── references/
-├── nano-banana-product-swap/
-│   ├── SKILL.md
 │   └── references/
 ├── native-image-ad-generator/
 │   ├── SKILL.md
@@ -71,25 +60,17 @@ claude-skills/
 ├── seurat-meeting-notes/
 │   ├── SKILL.md
 │   └── references/
-├── seurat-prompts/
-│   └── SKILL.md
-├── skill-builder/
-│   └── SKILL.md
 ├── skill-creator/
 │   ├── SKILL.md
 │   ├── agents/
 │   ├── references/
 │   └── scripts/
-├── slide-qc/
-│   └── SKILL.md
 ├── survey-document-builder/
 │   ├── SKILL.md
 │   └── references/
-├── tableclay-instagram-engagement/
-│   ├── SKILL.md
-│   └── engagement-log.csv
-└── tableclay-prompts/
-    └── SKILL.md
+└── tableclay-instagram-engagement/
+    ├── SKILL.md
+    └── engagement-log.csv
 ```
 
 ## Setup
