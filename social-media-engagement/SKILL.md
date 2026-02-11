@@ -4,7 +4,7 @@ description: |
   Automated social media engagement workflow across Instagram, Facebook, and TikTok. Finds relevant accounts, follows/likes them, reacts to posts, and drafts natural comments -- all via browser automation. Supports any brand with swappable brand context files (Table Clay is the default).
 
   Instagram: Explore-based discovery, follows, likes, comments.
-  Facebook: Business Page engagement via Feed/Group/Page discovery, Page follows, reactions, comments, Group participation.
+  Facebook: Reels-based discovery, Page follows, reactions, comments on relevant Reels only.
   TikTok: FYP-based discovery, follows, likes, comments on creator videos.
 
   Use when user says "run engagement", "Instagram engagement", "Facebook engagement", "TikTok engagement", "social media engagement", "daily engagement run", "find accounts to follow", "run IG session", "run FB session", "run TikTok session", "run TK session", "run engagement on all", "all platforms", or "engagement for [brand name]".
@@ -52,12 +52,12 @@ Determine which platform to run based on what the user says:
 The brand context file provides:
 - Brand name and handles
 - Products (so you know what NOT to mention in comments)
-- Target customers (used for qualifying accounts)
-- Content themes (used for discovery -- what topics to look for)
+- Target customers (shapes what content feels relevant)
+- Content themes (what topics to look for in the feed)
 - Competitors (used for additional discovery on Instagram)
 - Brand voice (used for comment tone)
 
-Keep the brand context in mind throughout the entire session. It shapes how you discover accounts, which accounts you qualify, and how you write comments.
+Keep the brand context in mind throughout the entire session. It shapes what content you engage with and how you write comments.
 
 ---
 
@@ -75,19 +75,21 @@ Keep the brand context in mind throughout the entire session. It shapes how you 
 
 ---
 
-## Step 4: Discover and Qualify Accounts
+## Step 4: Discover and Engage
 
-Discovery and qualifying criteria are platform-specific. Read the appropriate reference file:
+Discovery and engagement are platform-specific. Read the appropriate reference file:
 
-- **Instagram:** Read `references/instagram-workflow.md` for Explore-based discovery, qualifying criteria, and engagement actions
-- **Facebook:** Read `references/facebook-workflow.md` for Feed/Group/Page discovery, qualifying criteria for Pages and Groups, and engagement actions as a Business Page
-- **TikTok:** Read `references/tiktok-workflow.md` for FYP-based discovery, qualifying criteria for creators, and engagement actions
+- **Instagram:** Read `references/instagram-workflow.md` for Explore-based discovery and engagement
+- **Facebook:** Read `references/facebook-workflow.md` for Reels-based discovery and engagement
+- **TikTok:** Read `references/tiktok-workflow.md` for FYP-based discovery and engagement
 
-**Before engaging any account**, cross-check the handle/name against the **engagement log** (`engagement-log.csv` in this skill's directory):
-- If the account appears in the log **for the current platform** -- skip it entirely
-- If the account appears in the log **for a different platform** -- don't skip, but add a note in the `notes` column (e.g., "also engaged on Instagram as @handle on 2026-02-09" or "also engaged on TikTok as @handle on 2026-02-10")
+**Engage based on content, not account evaluation.** If a post/reel/video feels like it belongs in the brand's world -- pottery, coffee, cute finds, DIY, artsy stuff, cozy lifestyle -- engage with it directly. No need to visit profiles or check follower counts. The bar is vibes, not metrics.
 
-This prevents wasted follows and helps you build a cross-platform map over time.
+**Only soft-skip** obviously massive accounts (100K+ visible at a glance, or well-known brands). If you can't tell, don't worry about it.
+
+**Before engaging**, cross-check the handle/name against the **engagement log** (`engagement-log.csv` in this skill's directory):
+- If the account appears in the log **for the current platform** -- skip it
+- If the account appears in the log **for a different platform** -- don't skip, but add a note in the `notes` column
 
 ---
 
@@ -96,7 +98,7 @@ This prevents wasted follows and helps you build a cross-platform map over time.
 Run the engagement actions described in the platform-specific reference file:
 
 **Instagram:** Follow + Like + Comment (on selected posts)
-**Facebook:** Page Follow + React + Comment + Group Join/Participation
+**Facebook:** Page Follow + React + Comment (all via Reels discovery)
 **TikTok:** Follow + Like + Comment (on selected videos)
 
 For writing comments on any platform, read `references/comment-guide.md`. This covers:
@@ -130,7 +132,6 @@ Platform: [Instagram / Facebook / TikTok]
 Accounts followed: [count]
 Posts liked/reacted to: [count]
 Comments posted: [count]
-Groups joined: [count, Facebook only -- omit for Instagram and TikTok]
 Notable accounts found: [any standout accounts worth revisiting]
 Any issues: [rate limiting, CAPTCHAs, errors, or "none"]
 ```
@@ -151,9 +152,9 @@ date,time,platform,account_id,display_name,follower_count,account_type,content_t
 - `account_id` -- @username (Instagram, TikTok) or Page name/URL slug (Facebook)
 - `display_name` -- their profile or Page display name
 - `follower_count` -- approximate follower/friend count at time of engagement (use "unknown" if not visible)
-- `account_type` -- "profile" (Instagram), "creator" (TikTok), "page" (Facebook Page), "group" (Facebook Group)
+- `account_type` -- "profile" (Instagram), "creator" (TikTok), "page" (Facebook Page)
 - `content_type` -- what they post (e.g., "pottery", "coffee lifestyle", "DIY crafts", "ceramics")
-- `action_taken` -- "follow", "follow+like", "follow+like+comment", "page_follow", "page_follow+react", "page_follow+react+comment", "group_join", "group_react", "group_react+comment"
+- `action_taken` -- "follow", "follow+like", "follow+like+comment", "page_follow", "page_follow+react", "page_follow+react+comment"
 - `comment_text` -- the exact comment posted (blank if no comment)
 - `post_url` -- URL of the post liked/reacted to/commented on
 - `notes` -- anything notable (e.g., "great engagement on their posts", "potential collab", "also on IG as @xyz", "very active in pottery groups")
@@ -196,7 +197,7 @@ On the very first run of this skill for a platform:
 1. Open the platform -- whatever account is signed in is correct
 2. Run a **smaller test session** (half the normal limits):
    - Instagram: 7 follows, 7 likes, 2 comments
-   - Facebook: 4 Page follows, 6 reactions, 2 comments, 0-1 group joins
+   - Facebook: 4 Page follows, 6 reactions, 2 comments (all via Reels)
    - TikTok: 5 follows, 6 likes, 2 comments
 3. Review the session summary with the user and ask if the engagement style feels right
 4. Initialize or verify the `engagement-log.csv` has the correct headers
@@ -213,6 +214,5 @@ This helps catch any issues (wrong account signed in, brand voice mismatch, plat
 | **Follows** | 15 per session | 8 per session | 10 per session |
 | **Likes/Reactions** | 15 per session | 12 per session | 12 per session |
 | **Comments** | 5 per session | 4 per session | 4 per session |
-| **Group joins** | n/a | 1-2 per session | n/a |
 | **Sessions/day** | 2 max | 2 max | 2 max |
 | **Cool-down if flagged** | 4-6 hours | 6-12 hours | 6-12 hours |
