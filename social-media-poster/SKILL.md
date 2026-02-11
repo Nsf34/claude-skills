@@ -26,7 +26,8 @@ When the user wants to post or schedule social media content, follow this decisi
 ```
 User request
 ├── Wants to post NOW → Go to "Immediate Posting Workflow"
-├── Wants to SCHEDULE a post → Go to "Scheduling Workflow"
+├── Wants to SCHEDULE a single post → Go to "Scheduling Workflow"
+├── Wants DAILY AUTO-POSTING (5x/day) → Go to "Daily Auto-Posting Workflow"
 ├── Wants to check SCHEDULE → Run: python scripts/run_scheduler.py --list
 └── Wants to cancel a SCHEDULED post → Run: python scripts/run_scheduler.py --cancel <post-id>
 ```
@@ -153,6 +154,83 @@ For automated scheduling, the user needs a cron job that runs the scheduler peri
 
 The scheduler checks `assets/schedule_queue.json` for posts whose scheduled time has passed, posts them, and marks them as completed or failed.
 
+## Daily Auto-Posting Workflow
+
+For consistent daily content cadence — 5 posts per day per platform with organic, non-identical timing.
+
+### Step 1: Prepare a Content Manifest
+
+Create a JSON file listing all the content to post. Each entry needs `media` (array of file paths) and `caption` (string). See `assets/manifest_example.json` for the format.
+
+You need at least `posts_per_day * number_of_platforms` entries (e.g., 5 posts x 3 platforms = 15 entries).
+
+### Step 2: Generate the Daily Schedule
+
+**Preview the times first (dry run):**
+```bash
+python scripts/generate_daily_schedule.py \
+  --manifest /path/to/content_manifest.json \
+  --platforms facebook instagram tiktok \
+  --date 2025-02-15 \
+  --timezone "America/New_York" \
+  --dry-run
+```
+
+**Queue the posts for real:**
+```bash
+python scripts/generate_daily_schedule.py \
+  --manifest /path/to/content_manifest.json \
+  --platforms facebook instagram tiktok \
+  --date 2025-02-15 \
+  --timezone "America/New_York"
+```
+
+### How the Timing Works
+
+The scheduler generates **staggered, non-identical posting times** for each platform:
+
+- **Window:** 8:00 AM - 9:00 PM (configurable with `--start-hour` / `--end-hour`)
+- **5 posts** are spaced across the window with randomized jitter — no two slots are evenly timed
+- **Each platform gets different times** — Facebook might post at 8:23, 10:47, 13:12, 16:38, 19:55 while Instagram posts at 8:41, 11:03, 13:28, 16:09, 20:14
+- **Minimum 30-minute gap** between consecutive posts on the same platform
+- **No simultaneous cross-platform posts** — platforms are offset by 3-15 minutes
+
+This creates an organic posting pattern that avoids the robotic look of evenly-spaced intervals.
+
+### Customizing the Cadence
+
+```bash
+# 4 posts per day, 9 AM - 8 PM window
+python scripts/generate_daily_schedule.py \
+  --manifest content.json \
+  --platforms facebook instagram \
+  --date 2025-02-15 \
+  --posts-per-day 4 \
+  --start-hour 9 --end-hour 20
+
+# Single platform only
+python scripts/generate_daily_schedule.py \
+  --manifest content.json \
+  --platforms tiktok \
+  --date 2025-02-15
+```
+
+### Automating Multi-Day Scheduling
+
+To schedule an entire week, run the generator once per day with different manifest files or a larger manifest:
+
+```bash
+for day in 15 16 17 18 19 20 21; do
+  python scripts/generate_daily_schedule.py \
+    --manifest week_content.json \
+    --platforms facebook instagram tiktok \
+    --date "2025-02-$day" \
+    --timezone "America/New_York"
+done
+```
+
+**Important:** The cron job for `run_scheduler.py` must be active for scheduled posts to actually publish. See "Cron Setup" above.
+
 ## Media Requirements Quick Reference
 
 ### Images
@@ -208,11 +286,13 @@ TIKTOK_ACCESS_TOKEN=          # TikTok OAuth Access Token
 - `validate_media.py` — Validate media files against platform requirements
 - `schedule_post.py` — Add a post to the scheduling queue
 - `run_scheduler.py` — Process the scheduling queue (designed for cron execution)
+- `generate_daily_schedule.py` — Generate 5x/day staggered posting schedule per platform
 
 ### references/
 - `api-reference.md` — Detailed API endpoint documentation for all three platforms
-- `scheduling.md` — In-depth scheduling system documentation
+- `scheduling.md` — In-depth scheduling system documentation and daily cadence algorithm
 
 ### assets/
+- `manifest_example.json` — Example content manifest for daily auto-posting
 - `schedule_queue.json` — Scheduling queue (auto-created on first scheduled post)
 - `scheduled_media/` — Stored media files for scheduled posts (auto-created)

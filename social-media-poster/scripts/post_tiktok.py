@@ -154,7 +154,8 @@ def post_video(video_path: str, caption: str, privacy: str, access_token: str) -
     )
 
     data = resp.json()
-    if data.get("error", {}).get("code") not in ("ok", None) and resp.status_code != 200:
+    error_code = data.get("error", {}).get("code", "ok")
+    if error_code not in ("ok", None):
         fail(
             f"Video init failed: {data.get('error', {}).get('message', resp.text)}",
             api_response=data,
@@ -239,7 +240,8 @@ def post_photos(image_urls: list[str], caption: str, privacy: str, access_token:
     )
 
     data = resp.json()
-    if data.get("error", {}).get("code") not in ("ok", None) and resp.status_code != 200:
+    error_code = data.get("error", {}).get("code", "ok")
+    if error_code not in ("ok", None):
         fail(
             f"Photo init failed: {data.get('error', {}).get('message', resp.text)}",
             api_response=data,

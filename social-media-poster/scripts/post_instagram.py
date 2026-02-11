@@ -54,7 +54,7 @@ def _request_with_retry(method: str, url: str, **kwargs) -> requests.Response:
     with each attempt.
     """
     for attempt in range(1, MAX_RETRIES + 1):
-        response = requests.request(method, url, **kwargs)
+        response = requests.request(method, url, timeout=300, **kwargs)
 
         if response.status_code == 429 or response.status_code >= 500:
             if attempt == MAX_RETRIES:

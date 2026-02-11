@@ -452,7 +452,7 @@ def main() -> None:
                 data={"message": args.caption, "access_token": access_token},
             )
             data = _raise_for_api_error(response, context="Publishing text post")
-            output_success(data.get("id", ""), "single_image")
+            output_success(data.get("id", ""), "text")
 
         elif len(images) == 1 and len(videos) == 0:
             post_single_image(page_id, access_token, images[0]["path"], args.caption)

@@ -117,14 +117,14 @@ def load_queue():
 def save_queue(queue_data):
     """Atomically save the queue file with an exclusive file lock."""
     ASSETS_DIR.mkdir(parents=True, exist_ok=True)
-    with open(QUEUE_FILE, "r+") as fh:
-        fcntl.flock(fh, fcntl.LOCK_EX)
+    lock_path = QUEUE_FILE.with_suffix(".lock")
+    with open(lock_path, "w") as lock_fh:
+        fcntl.flock(lock_fh, fcntl.LOCK_EX)
         try:
-            fh.seek(0)
-            fh.write(json.dumps(queue_data, indent=2) + "\n")
-            fh.truncate()
+            with open(QUEUE_FILE, "w") as fh:
+                fh.write(json.dumps(queue_data, indent=2) + "\n")
         finally:
-            fcntl.flock(fh, fcntl.LOCK_UN)
+            fcntl.flock(lock_fh, fcntl.LOCK_UN)
 
 
 def validate_media(media_files, platforms):

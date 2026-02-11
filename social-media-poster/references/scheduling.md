@@ -127,3 +127,84 @@ If the lock file is stale (older than 30 minutes), it is automatically cleaned u
 - The scheduler converts all times to UTC for comparison
 - Display times use the timezone specified in the post
 - If no timezone is provided, the system timezone is used
+
+## Daily Auto-Posting Cadence
+
+The `generate_daily_schedule.py` script creates organic posting rhythms. Here's how the algorithm works.
+
+### Time Generation Algorithm
+
+1. **Window Division**: The posting window (default 8:00 AM - 9:00 PM = 780 minutes) is divided into N equal segments, where N = posts per day.
+
+2. **Segment Jitter**: Within each segment, a random time is selected. An inner padding of 15% is applied to each segment edge so times don't cluster at boundaries.
+
+   ```
+   Window: 8:00 ─────────────────────────────────── 21:00
+   Segments:  |  seg 1  |  seg 2  |  seg 3  |  seg 4  |  seg 5  |
+   Picks:     |    x    |   x     |     x   |  x      |      x  |
+   ```
+
+3. **Minimum Gap Enforcement**: After initial picks, any consecutive times closer than 30 minutes are nudged forward.
+
+4. **Cross-Platform Offset**: Each platform generates its own random times using a deterministic seed (`date + platform_name`). If two platforms would post in the same minute, one is offset by 3-15 minutes.
+
+### Example Output
+
+For a 3-platform, 5-post day, the generated times might look like:
+
+```
+FACEBOOK:
+  Post 1: 08:23
+  Post 2: 10:47
+  Post 3: 13:12
+  Post 4: 16:38
+  Post 5: 19:55
+
+INSTAGRAM:
+  Post 1: 08:41
+  Post 2: 11:03
+  Post 3: 13:28
+  Post 4: 16:09
+  Post 5: 20:14
+
+TIKTOK:
+  Post 1: 09:05
+  Post 2: 11:31
+  Post 3: 14:02
+  Post 4: 16:52
+  Post 5: 19:37
+```
+
+Notice: no two platforms share the same time, spacing varies organically, and all posts fall within the 8 AM - 9 PM window.
+
+### Deterministic Seeding
+
+The random seed is derived from `hash(date_string + platform_name)`. This means:
+- **Same date + platform** always produces the same times (reproducible for debugging)
+- **Different dates** produce different patterns (no day-to-day repetition)
+- **Different platforms** get different times on the same day
+
+### Content Manifest
+
+The manifest is a JSON array where each entry maps to one scheduled post:
+
+```json
+[
+  {
+    "media": ["/path/to/image.jpg"],
+    "caption": "Post caption with #hashtags"
+  }
+]
+```
+
+Content is assigned sequentially: for each time slot, a manifest entry is consumed. With 3 platforms and 5 posts/day, you need at least 15 entries per day.
+
+### Recommended Cron Setup for Daily Auto-Posting
+
+```bash
+# Process the schedule queue every 5 minutes
+*/5 * * * * cd /path/to/social-media-poster && python scripts/run_scheduler.py --run >> logs/scheduler.log 2>&1
+
+# Clean up old posts weekly
+0 2 * * 0 cd /path/to/social-media-poster && python scripts/run_scheduler.py --cleanup >> logs/scheduler.log 2>&1
+```
