@@ -8,6 +8,7 @@
 ## Products
 
 1. **Ceramic Travel Cup** ($24.99) — 15oz handmade ceramic with silicone lid, pure ceramic construction, no metallic aftertaste, dishwasher/microwave safe
+
 2. **Mini Pottery Wheel Starter Bundle** ($60-80) — Complete kit with electric wheel, air-dry clay, tools, paints, workspace mat. No kiln required. Ages 8+.
 
 ## Target Customers
@@ -29,7 +30,7 @@ pottery, ceramics, coffee culture, handmade goods, DIY crafts, creative hobbies,
 
 ## Brand Voice
 
-Warm, genuine, knowledgeable about pottery and craft, encouraging but not preachy, celebrates imperfection. Think "pottery friend who knows their stuff" — not "brand trying to sell you something."
+Warm, genuine, knowledgeable about pottery and craft, encouraging but not preachy, celebrates imperfection. Think "pottery friend who knows their stuff" rather than sales-focused messaging.
 
 ## Adding a New Brand
 

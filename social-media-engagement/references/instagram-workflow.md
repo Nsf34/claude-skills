@@ -12,7 +12,7 @@ This reference covers the full Instagram engagement workflow: discovery, engagem
 
 1. Click the **Explore** icon (compass) in the left sidebar
 2. Scroll through the grid and look for posts related to the brand's audience
-3. When you spot relevant content, engage with it directly — like, follow, comment right from the post
+3. When you spot relevant content, engage with it directly -- like, follow, comment right from the post
 4. Before following, cross-check the account handle against the **engagement log** to avoid re-following
 
 ### Additional Discovery Methods (mix in occasionally)
@@ -49,16 +49,16 @@ Engage with posts that feel like they belong in the brand's world. For Table Cla
 
 ### Soft Guideline on Size
 
-Don't waste time checking follower counts. But if it's obviously a massive account (100K+ followers visible at a glance, or a well-known brand/influencer), skip it — they won't notice the engagement. If you can't tell, don't worry about it.
+Don't waste time checking follower counts. But if it's obviously a massive account (100K+ followers visible at a glance, or a well-known brand/influencer), skip it -- they won't notice the engagement. If you can't tell, don't worry about it.
 
 ---
 
 ## Engagement Actions
 
-Engage **directly from the post in Explore** — no need to visit the creator's profile to evaluate them first. If the content is relevant, engage.
+Engage **directly from the post in Explore** -- no need to visit the creator's profile to evaluate them first. If the content is relevant, engage.
 
-1. **Follow the account** — click Follow right from the post
-2. **Like their post** — double-tap or click the heart
+1. **Follow the account** -- click Follow right from the post
+2. **Like their post** -- double-tap or click the heart
 3. **For 5 of the accounts:** Leave a genuine comment (see `references/comment-guide.md`)
 
 Follow + like is the baseline. Comments are reserved for posts where you have something genuinely specific to say. Don't force comments on posts that don't inspire a natural reaction.
@@ -70,7 +70,7 @@ Follow + like is the baseline. Comments are reserved for posts where you have so
 These limits are non-negotiable. Never exceed them in a single session.
 
 | Action | Per Session | Daily Max (2 sessions) |
-|--------|-------------|------------------------|
+|--------|-------------|----------------------|
 | Follows | 15 | 30 |
 | Likes | 15 | 30 |
 | Comments | 5 | 10 |
@@ -91,6 +91,7 @@ Space out engagement to mimic natural behavior:
 ### Pattern Variation
 
 Don't follow, like, comment in the exact same order every time. Mix it up:
+
 - Sometimes like first, then follow
 - Sometimes follow only (no like)
 - Vary which accounts get comments (not always the first 5 or last 5)
@@ -111,7 +112,7 @@ If you encounter ANY of these, **stop immediately** and inform the user:
 - Any warning about suspicious activity
 - Being logged out unexpectedly
 
-**Cool-down if flagged:** 4-6 hours minimum. Flagged twice in one day — skip the rest of the day entirely.
+**Cool-down if flagged:** 4-6 hours minimum. Flagged twice in one day -- skip the rest of the day entirely.
 
 ---
 

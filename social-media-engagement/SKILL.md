@@ -1,16 +1,6 @@
----
-name: social-media-engagement
-description: |
-  Automated social media engagement workflow across Instagram, Facebook, and TikTok. Finds relevant accounts, follows/likes them, reacts to posts, and drafts natural comments -- all via browser automation. Supports any brand with swappable brand context files (Table Clay is the default).
-
-  Instagram: Explore-based discovery, follows, likes, comments.
-  Facebook: Reels-based discovery, Page follows, reactions, comments on relevant Reels only.
-  TikTok: FYP-based discovery, follows, likes, comments on creator videos.
-
-  Use when user says "run engagement", "Instagram engagement", "Facebook engagement", "TikTok engagement", "social media engagement", "daily engagement run", "find accounts to follow", "run IG session", "run FB session", "run TikTok session", "run TK session", "run engagement on all", "all platforms", or "engagement for [brand name]".
-
-  Runs in Chrome via browser automation. Does NOT post original content or manage feeds -- only engages with others' content.
----
+| name | description |
+|------|-------------|
+| social-media-engagement | Automated social media engagement workflow across Instagram, Facebook, and TikTok. Finds relevant accounts, follows/likes them, reacts to posts, and drafts natural comments -- all via browser automation. Supports any brand with swappable brand context files (Table Clay is the default). Instagram: Explore-based discovery, follows, likes, comments. Facebook: Reels-based discovery, Page follows, reactions, comments on relevant Reels only. TikTok: FYP-based discovery, follows, likes, comments on creator videos. Use when user says "run engagement", "Instagram engagement", "Facebook engagement", "TikTok engagement", "social media engagement", "daily engagement run", "find accounts to follow", "run IG session", "run FB session", "run TikTok session", "run TK session", "run engagement on all", "all platforms", or "engagement for [brand name]". Runs in Chrome via browser automation. Does NOT post original content or manage feeds -- only engages with others' content. |
 
 # Social Media Engagement
 
@@ -50,6 +40,7 @@ Determine which platform to run based on what the user says:
 3. If a different brand is specified, look for `references/brand-{name}.md`. If the file doesn't exist, ask the user to provide brand details or create the file first.
 
 The brand context file provides:
+
 - Brand name and handles
 - Products (so you know what NOT to mention in comments)
 - Target customers (shapes what content feels relevant)
@@ -68,6 +59,7 @@ Keep the brand context in mind throughout the entire session. It shapes what con
 **TikTok:** Navigate to `https://www.tiktok.com/`
 
 **Rules:**
+
 1. Whatever account is signed into the browser is the correct one. Do NOT waste time verifying the handle, Page name, or asking the user to confirm. The browser is the source of truth.
 2. If not logged in, ask the user to log in. Never enter credentials yourself.
 3. If a CAPTCHA or verification appears, pause and ask the user to complete it.
@@ -88,6 +80,7 @@ Discovery and engagement are platform-specific. Read the appropriate reference f
 **Only soft-skip** obviously massive accounts (100K+ visible at a glance, or well-known brands). If you can't tell, don't worry about it.
 
 **Before engaging**, cross-check the handle/name against the **engagement log** (`engagement-log.csv` in this skill's directory):
+
 - If the account appears in the log **for the current platform** -- skip it
 - If the account appears in the log **for a different platform** -- don't skip, but add a note in the `notes` column
 
@@ -102,6 +95,7 @@ Run the engagement actions described in the platform-specific reference file:
 **TikTok:** Follow + Like + Comment (on selected videos)
 
 For writing comments on any platform, read `references/comment-guide.md`. This covers:
+
 - Platform-specific comment length and tone
 - Style distribution (compliments, questions, relatable, encouraging)
 - Hard rules that apply universally
@@ -117,6 +111,68 @@ These apply regardless of platform or brand:
 - **Never comment on controversial, negative, or drama content.** Skip it entirely.
 - **Never exceed session limits.** The limits exist to protect the account from restrictions.
 - **Always pace your actions.** Rapid-fire engagement gets flagged as bot behavior.
+
+---
+
+## Browser Interaction Patterns
+
+Social media UIs are dynamic and unpredictable. The platform-specific workflow files contain detailed interaction instructions, but these universal patterns apply across all platforms and should be your defaults.
+
+### Element Targeting
+
+**Always prefer the `find` tool over coordinate-based clicks for interactive elements.** Social media layouts shift between sessions, screen sizes, and A/B tests. The `find` tool locates elements by semantic meaning, which is more resilient than hardcoded coordinates.
+
+- Use `find` queries like "Follow button", "Like button", "comment input", "Next Card button"
+- If `find` returns multiple matches, use screenshot context to pick the one associated with the currently visible post/reel
+- Fall back to coordinates only when `find` can't locate an element, and take a fresh screenshot first
+
+### Stale References
+
+Social media feeds lazy-load and recycle DOM elements aggressively. Element references (`ref_XX`) from `find` or `read_page` can go stale when:
+
+- The feed scrolls or advances to new content
+- A modal/popup opens or closes
+- The page loads new content in the background
+
+**Rule: Re-query elements after any navigation action.** If you scrolled, advanced a reel, or closed a popup, your previous references are unreliable. Use `find` again.
+
+### Focus Management
+
+After interacting with text inputs (comment boxes, search bars), keyboard-based navigation often breaks because the input retains focus. After typing or submitting a comment:
+
+1. Click outside the input area or press `Escape` to release focus
+2. Verify focus is cleared before attempting keyboard navigation
+3. If keyboard navigation still doesn't work, use button-based navigation (see platform-specific workflows)
+
+### Fallback: Direct URL Navigation
+
+If feed-based navigation becomes unreliable (cycling through the same content, freezing, or not advancing), navigate directly to a fresh feed URL:
+
+- **Instagram:** `https://www.instagram.com/explore/`
+- **Facebook:** `https://www.facebook.com/reel/`
+- **TikTok:** `https://www.tiktok.com/foryou`
+
+This forces the platform to load a fresh batch of content. Use this as a reset when you've been stuck for more than 2-3 attempts to advance.
+
+### Popup and Modal Handling
+
+Social platforms frequently show popups (notifications, audio links, login prompts, "turn on notifications" modals). When a popup appears unexpectedly:
+
+1. Look for an X button or "Not Now" / "Close" option using `find`
+2. If no close button exists, press `Escape`
+3. Take a screenshot to verify the popup is dismissed before continuing
+4. Never interact with the content behind a popup -- it will click the wrong thing
+
+### Screenshot-First Principle
+
+Before any engagement action on a new piece of content, **take a screenshot** to:
+
+- Confirm what content is currently visible
+- Assess niche fit before committing to engage
+- Identify the correct UI elements and their positions
+- Verify you're looking at a new piece of content, not a recycled one
+
+This adds a small overhead per reel/post but prevents wasted actions on wrong targets.
 
 ---
 
@@ -141,11 +197,13 @@ Any issues: [rate limiting, CAPTCHAs, errors, or "none"]
 Save session data to `engagement-log.csv` in this skill's directory.
 
 **CSV columns:**
+
 ```
 date,time,platform,account_id,display_name,follower_count,account_type,content_type,action_taken,comment_text,post_url,notes
 ```
 
 **Column definitions:**
+
 - `date` -- YYYY-MM-DD
 - `time` -- HH:MM (24-hour)
 - `platform` -- "instagram", "facebook", or "tiktok"
@@ -184,6 +242,7 @@ All platforms actively detect and penalize bot-like behavior. These safeguards a
 ### Platform-Specific Safety
 
 For detailed stop triggers and safety protocols:
+
 - Instagram: See "Safety and Stop Triggers" in `references/instagram-workflow.md`
 - Facebook: See "Safety and Stop Triggers" in `references/facebook-workflow.md`
 - TikTok: See "Safety and Stop Triggers" in `references/tiktok-workflow.md`
@@ -209,7 +268,7 @@ This helps catch any issues (wrong account signed in, brand voice mismatch, plat
 
 ## Quick Reference: Session Limits
 
-| | Instagram | Facebook | TikTok |
+|  | Instagram | Facebook | TikTok |
 |---|-----------|----------|--------|
 | **Follows** | 15 per session | 8 per session | 10 per session |
 | **Likes/Reactions** | 15 per session | 12 per session | 12 per session |

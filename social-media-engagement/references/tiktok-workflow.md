@@ -12,7 +12,7 @@ The FYP is the primary discovery method. It surfaces fresh, relevant content eve
 
 1. Open TikTok and land on the **For You** feed (default view)
 2. Scroll through videos looking for content that matches the brand's audience
-3. When you spot relevant content, engage directly — like, follow, comment right from the video
+3. When you spot relevant content, engage directly -- like, follow, comment right from the video
 4. Before following, cross-check the creator's handle against the **engagement log** to avoid re-engaging
 
 ### Additional Discovery Methods (mix in occasionally)
@@ -50,21 +50,21 @@ Engage with videos that feel like they belong in the brand's world. For Table Cl
 
 ### Soft Guideline on Size
 
-Don't waste time checking follower counts. But if it's obviously a massive creator (100K+ followers visible at a glance, or a well-known name), skip it — they won't notice the engagement. If you can't tell, don't worry about it.
+Don't waste time checking follower counts. But if it's obviously a massive creator (100K+ followers visible at a glance, or a well-known name), skip it -- they won't notice the engagement. If you can't tell, don't worry about it.
 
 ---
 
 ## Engagement Actions
 
-Engage **directly from the video in the FYP** — no need to visit the creator's profile to evaluate them first. If the content vibes, engage.
+Engage **directly from the video in the FYP** -- no need to visit the creator's profile to evaluate them first. If the content vibes, engage.
 
-1. **Follow the creator** — click Follow right from the video
-2. **Like (heart) the video** — tap the heart
+1. **Follow the creator** -- click Follow right from the video
+2. **Like (heart) the video** -- tap the heart
 3. **For 4 of the creators:** Leave a genuine comment (see `references/comment-guide.md`)
 
 Follow + like is the baseline. Comments are reserved for videos where you have something genuinely specific to say about what you saw or heard. Don't force comments.
 
-No saves/bookmarks, no shares, no duets or stitches — those are content creation, not engagement.
+No saves/bookmarks, no shares, no duets or stitches -- those are content creation, not engagement.
 
 ---
 
@@ -100,11 +100,12 @@ Let the video play, then engage. This adds natural time and makes behavior organ
 ### Pattern Variation
 
 Mix it up:
+
 - Sometimes like first, then follow
 - Sometimes follow only (no like)
 - Vary which creators get comments
 - Occasionally like 2-3 of a creator's videos instead of just 1
-- Sometimes just watch and scroll past — not every relevant video needs an action
+- Sometimes just watch and scroll past -- not every relevant video needs an action
 
 ---
 
@@ -123,7 +124,7 @@ If you encounter **ANY** of these, **stop immediately** and inform the user:
 
 ### Shadowban Awareness
 
-TikTok may shadowban without notification — videos get near-zero views, content doesn't appear in searches. If the user reports this: pause all TikTok engagement for **48-72 hours**.
+TikTok may shadowban without notification -- videos get near-zero views, content doesn't appear in searches. If the user reports this: pause all TikTok engagement for **48-72 hours**.
 
 ### Cool-Down Protocols
 
