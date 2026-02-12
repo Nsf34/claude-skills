@@ -312,3 +312,23 @@ For a path where `<Channel>=Grocery`, only grocery options are visible. But Meij
 **DON'T invent question IDs:**
 - BAD: Q204, Q205, Q206 (sequential across batteries)
 - GOOD: Q301, Q302, Q303 (matching survey document's battery numbering)
+
+**DON'T override the test matrix due to conditional display conflicts:**
+- BAD: "Grocery is hidden for <male>, so select Drugstore instead" (40 lines of deliberation)
+- GOOD: "Select R1 – Grocery. NOTE: Grocery marked 'HIDE IF <MALE>' in survey doc; verify conditional logic."
+
+**DON'T give qualifying selections to non-assigned segments:**
+- BAD: "Select R1-R2 for Styling (qualifying), Select R1-R3 for Shampoo (also qualifying)" — could assign wrong segment
+- GOOD: "Select R1-R2 for Styling (qualifying), Select R4-R7 for Shampoo (non-qualifying)" — forces Styling assignment
+
+**DON'T skip hidden questions — include "Ensure not shown":**
+- BAD: (S21 not mentioned at all)
+- GOOD: "S21: Ensure you do not see this question"
+
+**DON'T select all multi-value matrix items when only one is assigned:**
+- BAD: Q201: "Select R1, R5, R8" (creates 3 loops) when Q202 only assigns R8
+- GOOD: Q201: "Select R8" (creates 1 loop matching Q202 assignment)
+
+**DON'T miscount R# in long brand tables:**
+- BAD: "Axe is R32" (miscounted in 30+ item table)
+- GOOD: Document landmark positions: "R10=American Crew, R20=Pantene, R26=Axe"

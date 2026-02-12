@@ -118,6 +118,15 @@ Each test path is a numbered column (Test 1, Test 2, etc.) that walks through ev
 **d) Skip/routing verification**: If this question should be skipped for this path
 - "Ensure you DO NOT see this question" with explanation of why
 
+### Phase 4b: Build a Question Inventory
+
+Before writing the test path, create a numbered list of EVERY question in the survey document (M1, S1, S2, ... S20, S21, M2, Q101, Q102, ... D5). This inventory ensures you don't skip questions. For each question, note:
+- Its ID (M1, S7a, Q203, etc.)
+- Whether it applies to this path (always shown, conditionally shown, or hidden)
+- If hidden: include "Ensure you do not see this question" in the test path
+
+This inventory is your checklist. Every question in the survey document must appear in the test path — either as a full entry with selections/ensures, or as "Ensure you do not see this question."
+
 ### Phase 5: Cross-Reference and Verify
 
 After generating all paths, verify:
@@ -128,6 +137,8 @@ After generating all paths, verify:
 4. **Response option accuracy** — Every R# reference matches the actual position in the survey document's response tables (R1 is the first option, R2 is the second, etc.)
 5. **Skip logic completeness** — Every conditional display rule in the survey is verified in at least one path (either "should see" or "should NOT see")
 6. **Loop/carousel handling** — Questions that loop for multiple categories are properly expanded with the right categories for each path
+7. **No missing questions** — Cross-check every question in your inventory against the test path output. Every survey question must be accounted for.
+8. **Hidden questions included** — Questions that should NOT appear for this path must still have an entry: "Ensure you do not see this question"
 
 ## Critical Rules
 
@@ -142,6 +153,14 @@ These rules exist because errors here have caused real problems in past test pla
 **Termination awareness at every selection**: Before writing "Select any" for a question, check if ANY response option at that question triggers termination. If so, write "Select any EXCEPT R[x]" and explain why.
 
 **Held vs. immediate terminations**: These are different and the test plan must distinguish them. Immediate terminations end the survey right away. Held terminations let the respondent continue through the screener (seeing all remaining screener questions) before terminating at the end.
+
+**CRITICAL — Trust the test matrix over conditional display conflicts**: If the test matrix specifies a value (e.g., Channel=Grocery for a male respondent) but the survey document says that option is hidden for that respondent type (e.g., "HIDE IF <MALE>"), FOLLOW THE MATRIX. Select the matrix-specified value. Add a brief 1-line note flagging the conflict. Do NOT change the selection, debate alternatives, or write multiple scenarios. The test matrix may be intentionally testing that conditional logic, or the survey may have been updated since the conditional rule was written. The matrix is the source of truth for what to select.
+
+**CRITICAL — Force non-qualifying selections for non-assigned segments**: When a respondent qualifies for multiple segments (e.g., Styling + Shampoo) but the matrix assigns only one (e.g., Styling), you must make the non-assigned segments fail to qualify. At the usage frequency question, select qualifying frequencies (R1-R3 typically) for the assigned segment and NON-qualifying frequencies (R4-R7 typically) for all other segments. This forces the survey's assignment logic to pick the intended segment. If you select qualifying frequencies for all segments, the wrong segment might be assigned.
+
+**CRITICAL — Multi-value matrix rows**: When a matrix row lists multiple values separated by commas (e.g., Q201: "R1, R5, R8"), select ONLY the value that corresponds to the assignment in the related matrix row. For example, if Q201 says "R1, R5, R8" and Q202 says "Getting ready while traveling / on vacation" (which is R8), select ONLY R8 at Q201. The Q201 row documents what occasions the path *could* exercise, but the Q202 row determines which one is actually assigned. Select only what's needed to produce the assigned value.
+
+**CRITICAL — R# verification for long tables**: When counting R# positions in tables with 20+ items, count carefully and document your count. For brand tables, list a few landmark positions to verify (e.g., "R10=American Crew, R15=Miss Jessie's, R20=Pantene, R26=Axe"). Miscounting by even 1 position in a 30-item table produces the wrong R#.
 
 **Question numbering**: Use the question identifiers from the survey document (S1, S2, Q301, etc.). If the survey document uses custom numbering (like "S10" for screener question 10, or "Q503" for main survey question), mirror that exactly. Do NOT invent your own numbering. Do NOT renumber questions sequentially (e.g., Q204, Q205, Q206...) if the survey document numbers them differently (e.g., Q301, Q302, Q303...). The survey document's question identifiers are what appear in the programmed survey, and testers navigate by these exact IDs.
 
