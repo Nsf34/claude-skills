@@ -1,37 +1,69 @@
-# Brand Context: Table Clay
+# Table Clay Brand Context (Social Engagement)
 
-**Brand:** Table Clay
-**Handle (Instagram):** @tableclay
-**Handle (Facebook):** Whatever account is signed into the browser
-**Handle (TikTok):** @tableclay
+## Brand Overview
+
+**Brand name:** Table Clay
+**Instagram handle:** _TBD_
+**Facebook page:** _TBD_
+**TikTok handle:** _TBD_
+**Chrome profile name:** _TBD_
+
+**Brand Positioning:** Handmade pottery and creative tools — from mini pottery wheels that bring the studio to your kitchen table, to handcrafted ceramic mugs you'll actually use every day.
+
+---
 
 ## Products
 
-1. **Ceramic Travel Cup** ($24.99) — 15oz handmade ceramic with silicone lid, pure ceramic construction, no metallic aftertaste, dishwasher/microwave safe
+| Product | Price | Description |
+|---------|-------|-------------|
+| Mini Pottery Wheel | _TBD_ | Starter pottery wheel for beginners and kids — compact, easy cleanup, real clay included |
+| Ceramic Travel Mug | _TBD_ | Handmade ceramic travel mug — leakproof, keeps drinks hot, fits standard cupholders |
+| Aesthetic/Cute Mugs | _TBD_ | Decorative handmade ceramic mugs for home — unique designs, collectible drops |
 
-2. **Mini Pottery Wheel Starter Bundle** ($60-80) — Complete kit with electric wheel, air-dry clay, tools, paints, workspace mat. No kiln required. Ages 8+.
+---
 
 ## Target Customers
 
-- Coffee enthusiasts who care about taste (pour-over crowd, specialty coffee lovers)
-- Eco-conscious consumers reducing plastic/disposable use
-- Creative adults seeking stress relief and new hobbies
-- Parents looking for screen-free family activities
-- Gift-givers seeking unique, meaningful presents
-- Aesthetic/lifestyle consumers who curate their daily rituals
+- **Apartment adults** — urban dwellers with limited space who want a creative hobby
+- **Beginner makers** — new to crafts, intimidated by pottery studios, want an easy start
+- **Parents** — looking for screen-free activities for kids (and themselves)
+- **Gift seekers** — shopping for unique, handmade, thoughtful gifts
+- **Coffee commuters** — daily commute, want a travel mug that feels special
+- **Home decor enthusiasts** — care about aesthetics, curate their space
+
+---
 
 ## Content Themes
 
-pottery, ceramics, coffee culture, handmade goods, DIY crafts, creative hobbies, mindful living, wellness
+- Pottery and ceramics — process videos, ASMR clay work, finished pieces
+- Screen-free activities and mindfulness/stress relief
+- Handmade craft culture and maker community
+- Coffee culture and morning routines
+- Home decor and cozy aesthetic
+- Gift guides and unique gift ideas
+- Date night and couples activities
+- Kids activities and family crafts
+
+---
 
 ## Competitors
 
-@moraceramics, @sculpd, @pottdceramics, @wandpdesign
+| Account | Why They Compete |
+|---------|-----------------|
+| @small_ceramics | Direct competitor — mini pottery wheels, 60K followers, home of the "Small Pottery Wheel" |
+| @wodeceramics | Mini pottery/ceramics brand with "WHEELIES" product line, 9.8K followers |
+| @ceramics_by_jas | Handmade ceramics for everyday use, 287K followers, teaches pottery and business |
+| @thirdwheelceramics | Handmade pottery content creator, 55K followers, mesmerizing process content |
+| @softfireceramics | Handmade pottery brand, 9.5K followers, artisan ceramic pieces |
+
+---
 
 ## Brand Voice
 
-Warm, genuine, knowledgeable about pottery and craft, encouraging but not preachy, celebrates imperfection. Think "pottery friend who knows their stuff" rather than sales-focused messaging.
+Warm and enthusiastic — like a fellow pottery-obsessed friend who's genuinely excited about clay. Not salesy. Curious about other makers' processes. Comments should feel like someone who loves the craft community and wants to hype up good work. Encouraging to beginners, respectful to pros.
 
-## Adding a New Brand
-
-To create a brand context for a different brand, copy this file as `brand-{name}.md` and fill in the same sections. Then tell the skill which brand to use when starting a session.
+**Tone examples:**
+- "The glaze on this is unreal, what cone did you fire at?"
+- "This is exactly why pottery > doomscrolling"
+- "Ok this makes me want to throw everything and start over, it's perfect"
+- "My hands are itching to get on the wheel after seeing this"
