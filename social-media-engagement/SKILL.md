@@ -11,7 +11,7 @@ This skill runs engagement sessions on Instagram, Facebook, and/or TikTok. The g
 The skill is brand-agnostic. Brand context (products, target customers, voice, content themes) is loaded from a swappable reference file. Table Clay is the default.
 
 **Supported platforms:** Instagram, Facebook (Business Page), TikTok
-**Session time:** ~15-25 minutes per platform
+**Session time:** ~8-15 minutes per platform
 **Frequency:** Up to 2 sessions per platform per day (morning + evening)
 
 ---
@@ -69,48 +69,30 @@ Keep the brand context in mind throughout the entire session. It shapes what con
 
 ## Step 4: Discover and Engage
 
-Discovery and engagement are platform-specific. Read the appropriate reference file:
+Discovery and engagement happen together as one continuous flow. Read the appropriate platform-specific reference file — it contains the complete workflow including discovery method, engagement sequence, pacing, and troubleshooting:
 
-- **Instagram:** Read `references/instagram-workflow.md` for Explore-based discovery and engagement
-- **Facebook:** Read `references/facebook-workflow.md` for Reels-based discovery and engagement
-- **TikTok:** Read `references/tiktok-workflow.md` for FYP-based discovery and engagement
+- **Instagram:** Read `references/instagram-workflow.md`
+- **Facebook:** Read `references/facebook-workflow.md`
+- **TikTok:** Read `references/tiktok-workflow.md`
 
-**Engage based on content, not account evaluation.** If a post/reel/video feels like it belongs in the brand's world -- pottery, coffee, cute finds, DIY, artsy stuff, cozy lifestyle -- engage with it directly. No need to visit profiles or check follower counts. The bar is vibes, not metrics.
+For writing comments on any platform, read `references/comment-guide.md`.
 
-**Only soft-skip** obviously massive accounts (100K+ visible at a glance, or well-known brands). If you can't tell, don't worry about it.
+### Pre-Session: Load Engagement History
 
-**Before engaging**, cross-check the handle/name against the **engagement log** (`engagement-log.csv` in this skill's directory):
+**Before engaging**, read the engagement log (`engagement-log.csv`) once and keep it in memory for the session. Do NOT re-read the CSV between individual engagements.
 
-- If the account appears in the log **for the current platform** -- skip it
-- If the account appears in the log **for a different platform** -- don't skip, but add a note in the `notes` column
+- If an account appears in the log **for the current platform** — skip it
+- If an account appears in the log **for a different platform** — don't skip, but add a note in the `notes` column
 
----
+### Engagement Principles
 
-## Step 5: Engage
-
-Run the engagement actions described in the platform-specific reference file:
-
-**Instagram:** Follow + Like + Comment (on selected posts)
-**Facebook:** Page Follow + React + Comment (all via Reels discovery)
-**TikTok:** Follow + Like + Comment (on selected videos)
-
-For writing comments on any platform, read `references/comment-guide.md`. This covers:
-
-- Platform-specific comment length and tone
-- Style distribution (compliments, questions, relatable, encouraging)
-- Hard rules that apply universally
-- Facebook reaction selection guide
-
-### Universal Hard Rules (all platforms)
-
-These apply regardless of platform or brand:
-
-- **Never mention the brand's products** in comments. This looks spammy.
+- **Engage based on content, not account evaluation.** If a post/reel/video feels like it belongs in the brand's world, engage with it directly. No profile visits or follower count checks needed.
+- **Only soft-skip** obviously massive accounts (100K+ visible at a glance).
+- **Never mention the brand's products** in comments.
 - **Never write generic comments** ("Great post!", "Love this!", "Amazing!"). Every comment must reference specific content.
 - **Never use hashtags** in comments.
-- **Never comment on controversial, negative, or drama content.** Skip it entirely.
-- **Never exceed session limits.** The limits exist to protect the account from restrictions.
-- **Always pace your actions.** Rapid-fire engagement gets flagged as bot behavior.
+- **Never comment on controversial, negative, or drama content.**
+- **Never exceed session limits.**
 
 ---
 
@@ -128,13 +110,13 @@ Social media UIs are dynamic and unpredictable. The platform-specific workflow f
 
 ### Stale References
 
-Social media feeds lazy-load and recycle DOM elements aggressively. Element references (`ref_XX`) from `find` or `read_page` can go stale when:
+Element references (`ref_XX`) from `find` or `read_page` go stale when the visible content changes. Re-query with `find` when:
 
-- The feed scrolls or advances to new content
-- A modal/popup opens or closes
-- The page loads new content in the background
+- A new post modal opens (previous post's refs are gone)
+- A reel advances to new content
+- A popup opens or closes over the content
 
-**Rule: Re-query elements after any navigation action.** If you scrolled, advanced a reel, or closed a popup, your previous references are unreliable. Use `find` again.
+**Don't re-query** between actions on the same piece of content (e.g., between follow and like on the same post modal). Refs stay valid while the same content is visible.
 
 ### Focus Management
 
@@ -163,20 +145,24 @@ Social platforms frequently show popups (notifications, audio links, login promp
 3. Take a screenshot to verify the popup is dismissed before continuing
 4. Never interact with the content behind a popup -- it will click the wrong thing
 
-### Screenshot-First Principle
+### When to Screenshot
 
-Before any engagement action on a new piece of content, **take a screenshot** to:
+Screenshots are useful but expensive. Use them strategically, not on every action.
 
-- Confirm what content is currently visible
-- Assess niche fit before committing to engage
-- Identify the correct UI elements and their positions
-- Verify you're looking at a new piece of content, not a recycled one
+**Take a screenshot when:**
+- First opening the platform to confirm you're on the right page
+- Something unexpected happens (wrong content visible, UI looks broken, error messages)
+- You need to verify an action worked after troubleshooting an issue
+- `find` can't locate an expected element and you need to see why
 
-This adds a small overhead per reel/post but prevents wasted actions on wrong targets.
+**Don't screenshot:**
+- Before every follow, like, or comment — use `find` to locate elements instead
+- Between actions on the same post/reel — if the modal is open, you're still on the same content
+- To "confirm" the Explore grid before clicking a post — just click it
 
 ---
 
-## Step 6: Session Logging and Engagement History
+## Step 5: Session Logging and Summary
 
 After each session, do **two things**:
 
@@ -204,8 +190,8 @@ date,time,platform,account_id,display_name,follower_count,account_type,content_t
 
 **Column definitions:**
 
-- `date` -- YYYY-MM-DD
-- `time` -- HH:MM (24-hour)
+- `date` -- YYYY-MM-DD (required for every row)
+- `time` -- HH:MM (24-hour, required for every row -- never leave blank)
 - `platform` -- "instagram", "facebook", or "tiktok"
 - `account_id` -- @username (Instagram, TikTok) or Page name/URL slug (Facebook)
 - `display_name` -- their profile or Page display name
@@ -216,6 +202,12 @@ date,time,platform,account_id,display_name,follower_count,account_type,content_t
 - `comment_text` -- the exact comment posted (blank if no comment)
 - `post_url` -- URL of the post liked/reacted to/commented on
 - `notes` -- anything notable (e.g., "great engagement on their posts", "potential collab", "also on IG as @xyz", "very active in pottery groups")
+
+**Logging format rules:**
+
+1. **One row per account per session.** Consolidate all actions taken on one account into a single row using the `action_taken` field (e.g., "follow+like+comment"). Do NOT log each action (follow, like, comment) as separate rows for the same account -- this creates bloat and makes the log harder to read.
+2. **Always include the time.** Every row must have an HH:MM timestamp. Use the approximate time the first action was taken on that account.
+3. **Keep it consistent across platforms.** The same format applies to Instagram, Facebook, and TikTok -- no platform should use a different row structure.
 
 **Before each session, read this CSV** to check which accounts have already been engaged. This prevents re-following and keeps engagement fresh.
 
