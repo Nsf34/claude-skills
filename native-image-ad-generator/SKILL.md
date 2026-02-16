@@ -387,19 +387,85 @@ Use the GitHub web interface to create the summary file. This is the tested, wor
 10. Click **"Commit changes"** in the modal
 11. Wait for redirect to the new folder — verify `Ad_Concepts_Summary.md` appears in the file listing
 
-**7D. Upload images to GitHub via browser (Upload Files)**
+**7D. Upload images to GitHub via browser (Automated)**
 
-The 5 generated images are in the user's Chrome Downloads folder (Gemini downloads go to the real browser, not the VM). Open the upload page for the user:
+The 5 generated images are in the user's Chrome Downloads folder. Upload them programmatically using base64 injection into GitHub's upload page.
 
-1. From the folder page at `Brands/[Brand]/ad-outputs/[Product]/`, click **"Add file"** → **"Upload files"**
-   - OR navigate directly to: `https://github.com/Nsf34/claude-skills/upload/main/Brands/[Brand]/ad-outputs/[Product]`
-2. The upload page will open with a drag-and-drop zone saying "Drag files here to add them to your repository"
-3. **Tell the user:** "I've opened the GitHub upload page. Please drag your 5 downloaded Gemini images from your Downloads folder into the upload zone. They'll be named like `Gemini_Generated_Image_[hash].png`. Once you've dragged them in, let me know and I'll commit."
-4. Wait for the user to confirm files are added
-5. Update the commit message field to: `Add generated ad images for [Brand] - [Product]`
-6. Click **"Commit changes"** button
+> **PREREQUISITE:** The user's Downloads folder (or a parent directory containing it) must be mounted as the Cowork workspace, OR the workspace must include a path where the Gemini images were saved. Common locations:
+> - macOS: `/Users/[username]/Downloads/`
+> - Windows: `/mnt/c/Users/[username]/Downloads/` (WSL) or `C:\Users\[username]\Downloads\`
+> - The mounted workspace path in Cowork: `/sessions/[session-id]/mnt/[mounted-folder]/`
+>
+> If the Downloads folder is NOT accessible, fall back to the manual method (Step 7D-Fallback below).
 
-**If the user can't find the images:** The Gemini URLs are saved in the summary. Tell them they can revisit each URL, click the image, and use the download icon to re-download.
+**Automated upload procedure:**
+
+1. **Find the Gemini images** in the mounted workspace:
+   ```bash
+   # Search for recent Gemini-generated images
+   find /sessions/*/mnt/ -name "Gemini_Generated_Image_*.png" -newer [start-of-session-marker] 2>/dev/null | sort -t/ -k1 | tail -5
+   # OR if Downloads is directly mounted:
+   ls -lt /sessions/*/mnt/Downloads/Gemini_Generated_Image_*.png 2>/dev/null | head -5
+   # OR search broadly:
+   find /sessions/*/mnt/ -name "*.png" -newer [24-hours-ago] -size +50k 2>/dev/null
+   ```
+   Look for the 5 most recent PNG files matching `Gemini_Generated_Image_*` pattern.
+
+2. **Read each image as base64:**
+   ```bash
+   base64 -w0 "/path/to/Gemini_Generated_Image_abc123.png"
+   ```
+   Store the base64 string for each of the 5 images.
+
+3. **Navigate to the GitHub upload page:**
+   ```
+   https://github.com/Nsf34/claude-skills/upload/main/Brands/[Brand]/ad-outputs/[Product]
+   ```
+
+4. **Inject each image via JavaScript drop event** (this is the tested, working method):
+   ```javascript
+   // For EACH image, create a File from base64 and drop it on the upload zone
+   const b64 = '<BASE64_STRING_HERE>';
+   const byteChars = atob(b64);
+   const byteArray = new Uint8Array(byteChars.length);
+   for (let i = 0; i < byteChars.length; i++) {
+     byteArray[i] = byteChars.charCodeAt(i);
+   }
+   const blob = new Blob([byteArray], { type: 'image/png' });
+   const file = new File([blob], 'Concept[N]_[ShortName].png', { type: 'image/png', lastModified: Date.now() });
+
+   const dt = new DataTransfer();
+   dt.items.add(file);
+
+   const dropZone = document.querySelector('file-attachment') ||
+                    document.querySelector('.js-upload-manifest-drag-and-drop');
+
+   dropZone.dispatchEvent(new DragEvent('dragenter', { bubbles: true, dataTransfer: dt }));
+   dropZone.dispatchEvent(new DragEvent('dragover', { bubbles: true, cancelable: true, dataTransfer: dt }));
+   dropZone.dispatchEvent(new DragEvent('drop', { bubbles: true, cancelable: true, dataTransfer: dt }));
+   ```
+
+   **IMPORTANT NOTES:**
+   - Inject files ONE AT A TIME, waiting 2 seconds between each
+   - Rename files during injection to use concept names (e.g., `Concept1_Peace_of_Mind.png`)
+   - The `file-attachment` element is a custom element on GitHub's upload page — it handles the drop event
+   - After all 5 files are injected, verify they appear in the file list below the drop zone
+   - The drop zone text changes to "Drag **additional** files here" after the first file — this confirms it's working
+   - DO NOT use the `fileInput.files = dt.files` approach — it gets silently blocked. Only the drop event method works.
+
+5. **Update commit message and commit:**
+   - Click into the commit message field
+   - Clear and type: `Add generated ad images for [Brand] - [Product]`
+   - Click **"Commit changes"** button
+   - Wait for redirect to confirm success
+
+**7D-Fallback. Manual upload (if Downloads folder is not mounted)**
+
+If the images can't be found in the mounted workspace:
+
+1. Open the upload page: `https://github.com/Nsf34/claude-skills/upload/main/Brands/[Brand]/ad-outputs/[Product]`
+2. Tell the user: "I can't find the Gemini images in the mounted folder. Please drag your 5 downloaded images from your Downloads folder into the GitHub upload zone I've opened, then let me know and I'll commit."
+3. Wait for user confirmation, then commit.
 
 **7E. Final delivery message**
 
@@ -443,3 +509,4 @@ If the .docx can't be read, try markitdown as a fallback: `python -m markitdown 
 - [nanobanana-prompt-guide.md](references/nanobanana-prompt-guide.md) — Prompt engineering guide for high-quality Gemini image generation
 - [concept-scoring-rubric.md](references/concept-scoring-rubric.md) — Scoring criteria with examples for concept selection
 - [product-spec-template.md](assets/product-spec-template.md) — Template for extracting accurate product specifications from dossiers
+
