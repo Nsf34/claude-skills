@@ -299,32 +299,27 @@ For each of the 5 selected concepts, execute this exact sequence:
 - Never set `innerHTML` on the editor — blocked by TrustedHTML CSP
 - Never use JavaScript fetch/blob to download — blocked by CORS
 
-### Step 7: Save Outputs & Deliver
+### Step 7: Save Outputs & Push to GitHub
 
-Save everything to a `Native Image Outputs/` folder in the user's workspace (the folder they gave Claude permission to work in):
+All outputs are saved to two locations: the local workspace folder AND the GitHub repo (`github.com/Nsf34/claude-skills`). The GitHub repo is the primary archive.
+
+> **CRITICAL:** Git CLI will NOT work from the VM (no credential helper). All GitHub pushes MUST use browser automation via the GitHub web interface. Never attempt `git push` — it will fail.
+
+**7A. Local save (workspace folder)**
+
+Save to `Native Image Outputs/` in the user's workspace:
 
 ```
 [Workspace Folder]/Native Image Outputs/
 └── [Brand Name]/
     └── [Product Name]/
-        ├── Concept1_[ShortName].png
-        ├── Concept2_[ShortName].png
-        ├── Concept3_[ShortName].png
-        ├── Concept4_[ShortName].png
-        ├── Concept5_[ShortName].png
-        └── Ad_Concepts_Summary.md
+        ├── Ad_Concepts_Summary.md
+        └── (images are in Chrome Downloads — see 7D)
 ```
 
-**Folder structure rules:**
-- Create `Native Image Outputs/` in the workspace root if it doesn't exist
-- Brand folder uses the brand's display name (spaces OK)
-- Product folder uses the product's display name (spaces OK)
-- Image files: `Concept[N]_[ShortName].png` — sanitize concept name (underscores, no special chars)
-- All images are 4:5 ratio (Meta/Instagram feed format)
+**7B. Create `Ad_Concepts_Summary.md`**
 
-**Summary file (`Ad_Concepts_Summary.md`):**
-
-Create this file documenting everything about the generation run:
+Build this file locally first (you'll paste it into GitHub in step 7C):
 
 ```markdown
 # [Brand] — [Product] Ad Concepts
@@ -344,11 +339,17 @@ Generated: [Date]
 - **Strategic Rationale:** [Why this concept works]
 - **Ad Copy:** [Text that appears on image]
 - **File:** [filename]
+- **Gemini URL:** [conversation URL]
 - **NanoBanana Prompt:**
 [full prompt]
 
 ### Concept 2: [Name]
 ... [repeat for all 5]
+
+## Gemini Generation URLs
+1. **Concept 1:** [URL]
+2. **Concept 2:** [URL]
+... [all 5]
 
 ## Failed Generations (if any)
 [Note any prompts Gemini refused and why]
@@ -357,11 +358,62 @@ Generated: [Date]
 [Filename and path of the dossier]
 ```
 
-**Final delivery message:**
+**7C. Push Ad_Concepts_Summary.md to GitHub via browser (Create New File)**
 
-After saving everything, provide a single completion message with a link to the output folder. Keep it brief:
+Use the GitHub web interface to create the summary file. This is the tested, working method:
 
-"Done — 5 ad concepts generated in 4:5 format. [View your ad images](computer:///path/to/Native Image Outputs/Brand/Product/)"
+1. Navigate to `https://github.com/Nsf34/claude-skills/tree/main/Brands/[Brand]` in Chrome
+2. Verify you're logged into the Nsf34 account (check profile icon in top-right)
+3. Click **"Add file"** dropdown → **"Create new file"**
+4. In the filename field, type: `ad-outputs/[Product]/Ad_Concepts_Summary.md`
+   - GitHub auto-creates the `ad-outputs/[Product]/` directories when you type `/`
+   - Verify the breadcrumb shows the correct path before proceeding
+5. Click into the editor area (the CodeMirror content-editable div)
+6. Insert the full Ad_Concepts_Summary.md content using JavaScript:
+   ```javascript
+   // GitHub uses CodeMirror 6 with a contenteditable .cm-content div
+   const content = document.querySelector('.cm-content');
+   content.focus();
+   document.execCommand('selectAll', false, null);
+   document.execCommand('delete', false, null);
+   // Insert content in chunks if needed (large text may need 2-3 insertions)
+   document.execCommand('insertText', false, '<FULL MARKDOWN CONTENT>');
+   ```
+   - For very long content, split into 2-3 chunks and call `insertText` sequentially
+   - Never use `innerHTML` — use `execCommand('insertText')` only
+7. Click **"Commit changes..."** button (top-right of editor)
+8. Update the commit message to: `Add ad concepts for [Brand] - [Product]`
+9. Ensure "Commit directly to the main branch" is selected
+10. Click **"Commit changes"** in the modal
+11. Wait for redirect to the new folder — verify `Ad_Concepts_Summary.md` appears in the file listing
+
+**7D. Upload images to GitHub via browser (Upload Files)**
+
+The 5 generated images are in the user's Chrome Downloads folder (Gemini downloads go to the real browser, not the VM). Open the upload page for the user:
+
+1. From the folder page at `Brands/[Brand]/ad-outputs/[Product]/`, click **"Add file"** → **"Upload files"**
+   - OR navigate directly to: `https://github.com/Nsf34/claude-skills/upload/main/Brands/[Brand]/ad-outputs/[Product]`
+2. The upload page will open with a drag-and-drop zone saying "Drag files here to add them to your repository"
+3. **Tell the user:** "I've opened the GitHub upload page. Please drag your 5 downloaded Gemini images from your Downloads folder into the upload zone. They'll be named like `Gemini_Generated_Image_[hash].png`. Once you've dragged them in, let me know and I'll commit."
+4. Wait for the user to confirm files are added
+5. Update the commit message field to: `Add generated ad images for [Brand] - [Product]`
+6. Click **"Commit changes"** button
+
+**If the user can't find the images:** The Gemini URLs are saved in the summary. Tell them they can revisit each URL, click the image, and use the download icon to re-download.
+
+**7E. Final delivery message**
+
+After both the summary and image upload are complete:
+
+```
+Done — 5 ad concepts generated in 4:5 format.
+
+✅ Summary pushed to GitHub
+✅ Images uploaded to GitHub (or upload page open for you)
+
+[View on GitHub](https://github.com/Nsf34/claude-skills/tree/main/Brands/[Brand]/ad-outputs/[Product]/)
+[View local summary](computer:///path/to/Native Image Outputs/Brand/Product/Ad_Concepts_Summary.md)
+```
 
 ## Error Handling
 
