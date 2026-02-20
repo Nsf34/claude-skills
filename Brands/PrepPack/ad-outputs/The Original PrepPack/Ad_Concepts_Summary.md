@@ -1,70 +1,131 @@
 # PrepPack — The Original PrepPack Ad Concepts
-Generated: February 18, 2026
+Generated: February 19, 2026
 
-## Selected Concepts (Top 5)
-
-### Concept 1: Peace of Mind, Gift-Wrapped
-- **Type:** Gift Angle | **Score:** 23/25
-- **Strategic Rationale:** Peace of mind is the #1 purchase driver (60%+ of reviews). PrepPack uniquely owns the gifting-emotion space — no competitor positions around "you care about them."
-- **Ad Copy:** "PEACE OF MIND. GIFT-WRAPPED." / "100+ essentials. One box."
-- **File:** Concept1_PeaceOfMind_GiftWrapped.png
-
-**NanoBanana Prompt:**
-Commercial product photography of The Original PrepPack box placed elegantly on a warm honey-toned wooden surface, styled as a premium gift. The PrepPack is a clean, matte navy blue rectangular box approximately 12 inches wide and 8 inches tall with "PrepPack" printed prominently in crisp white lettering on the front face. The box has a premium matte finish, not glossy, with clean modern typography. A handwritten gift tag reading "For you" is tied to the box with a neutral linen ribbon looped around the top. In the soft-focus background, warm bokeh from string lights suggests a celebratory occasion — college graduation or move-in day. The surface is natural light oak wood grain. The atmosphere is warm, tender, and hopeful — the emotion of sending a child off to college and wanting them to be safe. Soft warm directional lighting from the upper left creates gentle highlights on the box edge and ribbon, with soft natural shadows falling to the right. Camera angle is slightly elevated (20 degrees above eye level), product centered in the left 55% of the frame. Medium depth of field — the box is tack-sharp, background falls to smooth warm blur. At the top 22% of the image, large bold condensed sans-serif text reads "PEACE OF MIND. GIFT-WRAPPED." in cream white spanning 80% of image width. At the bottom 12%, smaller sans-serif text reads "100+ essentials. One box." in cream white. Color palette: navy blue box (#1B3A6B), warm honey wood (#C8966C), deep warm dark background (#2C1810), cream text (#FFF8F0), warm string light bokeh (#E8A84C). Do not include: multiple boxes, wrapping paper obscuring the product, generic holiday decorations, glossy box finish, excessive props that distract from the hero product, distorted or misspelled text, military or camping aesthetic. --ar 4:5
+## Generation Summary
+- Concepts generated: 15
+- Top 5 selected by score
+- Format: 4:5 (Meta/Instagram feed)
+- Total images: 5
+- Research dossier: PrepPack — Deep Research Dossier.docx
 
 ---
 
-### Concept 2: The 2 AM Nightmare
-- **Type:** Pain Agitation | **Score:** 22/25
-- **Strategic Rationale:** The "2 AM sick scenario" is the single most vivid and universally cited use case in the research — campus health closed, no pharmacy accessible, student alone and sick. PrepPack's foundational fear-to-relief arc.
-- **Ad Copy:** "2 AM. SICK. NO PHARMACY NEARBY." / "PrepPack changes that."
-- **File:** Concept2_The2AMNightmare.png
+## Product Spec Sheet (Internal)
 
-**NanoBanana Prompt:**
-A split-screen static image ad divided by a clean vertical line down the center. Left half: a dark, cold, blue-tinged dorm room at 2 AM. A college student in a hoodie sits hunched on a bed, illuminated only by the cold blue-white glow of a phone screen held in their hands. The phone shows a text conversation. The mood is anxious, isolated, hopeless. The left side palette is desaturated and cold — cool grays and muted blues (#1A2340, #2D3A5C). Right half: the same dorm room but now bathed in warm, reassuring amber-golden light. The student sits upright at their desk, confidently and calmly opening a matte navy blue PrepPack box labeled "PrepPack" in white text. Several items are partially visible as they open it — a small medication packet, a digital thermometer. The right side palette is warm and relieved — amber (#D4873C), soft warm white (#FFF8F0). A thin clean white vertical dividing line separates the two halves. At the very top of the image spanning full width, large bold condensed sans-serif text reads "2 AM. SICK. NO PHARMACY NEARBY." in white. In the bottom 15% of the right half only, smaller cream text reads "PrepPack changes that." Commercial editorial photography style. Camera angle slightly above eye level. Medium depth of field. Color palette: left cold blue-gray (#1A2340), right warm amber (#D4873C), white divider line, cream text (#FFF8F0). Do not include: graphic illness imagery, clearly identifiable faces with specific expressions, stock photo aesthetic, distorted or misspelled text, product that looks like a medicine bag or first aid kit with a red cross. --ar 4:5
+**Product Name:** The Original PrepPack
 
----
+**Physical Description:** A compact, premium college preparedness kit containing 100+ individual items organized in a gift-ready white storage box with navy blue PrepPack branding. The kit spans four distinct categories: First Aid and Medical (20 items), Tools and Repairs (12 items), Safety Essentials (7 items), and Comfort and Daily Use (11 items). Compact enough to slide under a twin-XL dorm bed.
 
-### Concept 3: Dorm Floor Hero
-- **Type:** Lifestyle / Aspirational | **Score:** 22/25
-- **Strategic Rationale:** The "Dorm Hero" social currency motivation is the 3rd-ranked purchase driver. Students with well-stocked kits become trusted resources on their floor, building community. No competitor targets this angle.
-- **Ad Copy:** "BE THE HERO OF YOUR FLOOR." / "First aid. Tools. Safety. Comfort."
-- **File:** Concept3_DormFloorHero.png
+**Key Visual Items:**
+- Black foldable multitool
+- Digital thermometer in black case
+- Compact silver personal safety alarm with keyring
+- Small silver/black flashlight
+- Compact folded fleece blanket (mint green or teal)
+- Blister packs of pain reliever and cold medicine
+- Roll of black duct tape
+- Earplugs in round case
+- Deck of playing cards (red/blue case)
+- Electrolyte powder stick packs
+- Emergency Instructions Booklet
 
-**NanoBanana Prompt:**
-Warm commercial lifestyle photography of a college-aged student standing in an open dorm room doorway, confidently holding an open matte navy blue PrepPack box (approximately 12 inches wide, labeled "PrepPack" in white lettering on the front) at waist level. The student's energy is warm, confident, and welcoming. Through the open doorway, two hallmates in casual clothes are visible in the warm-lit dormitory corridor beyond — one reaching toward the box gratefully. The hallway shows classic dormitory architecture — painted cinder block walls, institutional doors, warm Edison bulb ceiling lighting creating a golden amber glow (#E8A84C). The atmosphere conveys social connection, competence, and belonging. Items from the PrepPack are partially visible inside the open box: a bandage package, a small packet of medications, a small flashlight. Soft warm directional light from inside the dorm room illuminates the hero student from behind and to the left, creating a gentle rim light. At the top 22% of the image, bold condensed sans-serif text reads "BE THE HERO OF YOUR FLOOR." in cream white (#FFF8F0). At the bottom 15%, smaller light sans-serif reads "First aid. Tools. Safety. Comfort." in cream white. Camera angle slightly elevated (15 degrees above eye level), hero student center-frame. Medium-shallow depth of field — hero student and box tack-sharp, hallway beyond falls to warm bokeh. Color palette: warm amber hallway (#E8A84C), navy PrepPack box (#1B3A6B), cream text (#FFF8F0). Do not include: clearly recognizable real faces, sad or depressing dormitory conditions, stock photo look, logos of other brands visible, distorted or misspelled text. --ar 4:5
+**Price Point:** $100 (regularly $150)
 
----
-
-### Concept 4: Safety Included
-- **Type:** Big Benefit Statement | **Score:** 22/25
-- **Strategic Rationale:** Campus safety is a deeply felt but rarely addressed parental anxiety. No competitor bundles a personal safety alarm as part of a comprehensive kit. This makes the invisible visible and directly exploits a competitive gap.
-- **Ad Copy:** "SAFETY. INCLUDED." / "120dB alarm. Flashlight. Emergency blanket."
-- **File:** Concept4_SafetyIncluded.png
-
-**NanoBanana Prompt:**
-Dramatic commercial product photography of a personal safety alarm — a small, compact keychain-style alarm approximately 2.5 inches long in matte navy blue (#1B3A6B) with a bright orange-red pull pin — resting in the open palm of a hand shown from mid-palm with fingers gently curved upward. The background is deep charcoal (#2D3436), nearly black, creating maximum contrast with the product. A single warm beam of golden studio light from the upper right creates a strong glowing highlight along the top edge of the alarm and rim lights the hand, separating both from the dark background. The lighting conveys the feeling of passing something precious and important to someone you love. The safety alarm has a clean, modern minimal design — no visible brand text on the device, just the pull-pin mechanism clearly visible. At the top 28% of the image, large bold condensed sans-serif text reads "SAFETY. INCLUDED." in cream white (#FFF8F0). Below in slightly smaller text: "Not sold separately. Just packed." At the bottom 15%, small light sans-serif reads "120dB alarm + flashlight + emergency blanket." in cream white. The hand and alarm are in the center-bottom 60% of the frame. Camera at near-eye level with 85mm portrait lens compression feel. Shallow depth of field — the alarm and hand are razor-sharp, the background falls to smooth dark gradient. Color palette: deep charcoal background (#2D3436), navy alarm (#1B3A6B), golden warm light (#D4873C), orange-red pull pin accent, cream text (#FFF8F0). Do not include: multiple products in the frame, visible brand logos other than described, AI-distorted hand anatomy, visible face, distorted or misspelled text. --ar 4:5
+**Key Proof Points:**
+- 100+ items, 4 categories, $100
+- Founded by Cornell EMS alumni (Bella — 4 years, 1,000+ emergency calls)
+- Saves $65+ vs. DIY assembly ($165+ at Walmart)
+- Hand-packed in 24 hours
 
 ---
 
-### Concept 5: Flat Lay Unboxing
-- **Type:** Features & Benefits | **Score:** 21/25
-- **Strategic Rationale:** "Can I see what's actually in it?" is a top research objection. Radical transparency (photograph every item) is PrepPack's stated strategy. A flat lay showing 100+ items organized by category is the most powerful answer to "it's just bandaids and aspirin" — directly targeting the value-perception gap.
-- **Ad Copy:** "100+ ITEMS. 4 CATEGORIES. $100." / "Everything they need. Nothing they'll forget."
-- **File:** Concept5_FlatLayUnboxing.png
+## Selected Concepts
 
-**NanoBanana Prompt:**
-Commercial overhead flat-lay product photography of The Original PrepPack's contents laid out in an organized, meticulous, visually satisfying arrangement on a deep navy blue matte surface (#0D1B2A). The navy blue PrepPack box — approximately 12 inches wide, matte finish, "PrepPack" in white lettering — sits at the top center of the composition as the hero anchor. Below and around the box, 30-40 individual items from the kit are arranged in four distinct quadrant groupings with breathing room between each piece. Upper-left quadrant: First Aid items — roll of bandages, small packet of OTC medications, a digital thermometer in its case, gauze pads, antiseptic wipes. Upper-right quadrant: Tools and Repairs — silver-black multitool closed, a small roll of duct tape, measuring tape in yellow, super glue tube, small scissors. Lower-left quadrant: Safety Essentials — navy safety alarm keychain with orange pull pin, compact black flashlight, folded silver emergency blanket. Lower-right quadrant: Comfort items — foam earplugs pair, sleep mask in navy, small electrolyte powder packets, mini deck of playing cards. Small cream label cards sit next to each quadrant. Even diffused studio lighting from directly overhead — every item crisp and identifiable with no harsh shadows. At the top 14% of the image, bold condensed sans-serif text reads "100+ ITEMS. 4 CATEGORIES. $100." in cream white (#FFF8F0). At the bottom 10%, smaller text: "Everything they need. Nothing they'll forget." Camera angle: perfectly overhead (90 degrees flat-lay). Deep depth of field — every item sharp edge-to-edge. Color palette: deep navy surface (#0D1B2A), navy box (#1B3A6B), cream labels (#FFF8F0). Do not include: items from outside a college preparedness kit, overlapping elements obscuring individual products, harsh directional shadows, glossy surface reflections, distorted or misspelled text, random clutter or decorative props. --ar 4:5
+### Concept 1: Gift That Gets Used Every Week
+- **Type:** Gift Angle
+- **Score:** 23/25 (Emotional: 5, Scroll-Stop: 4, Brand: 5, Differentiation: 4, Feasibility: 5)
+- **Strategic Rationale:** Gift positioning is a massive underexploited opportunity — graduation and move-in day are the #1 gifting moments in this category. "Not another gift card" directly displaces the low-value default and positions PrepPack as the practical-meaningful gift that parents and grandparents are actively searching for in the $50–$150 range.
+- **Ad Copy:** "NOT ANOTHER GIFT CARD." / "The graduation gift they'll reach for every week." / Badge: "100+ items · $100"
+- **File:** Concept1_Gift_That_Gets_Used.png
+- **Gemini URL:** [TBD after generation]
+- **NanoBanana Prompt:**
+Commercial product photography of a PrepPack college preparedness kit presented as a beautiful graduation gift on a warm cream-colored linen surface. The PrepPack box is a clean, premium white gift box with navy blue branding text and a tasteful gold ribbon tied around it. Beside the open box, approximately 15-20 key items are artfully arranged: a black multitool, a digital thermometer in its case, a compact silver personal safety alarm, a small folded mint-green fleece blanket, blister packs of Advil and cold medicine, a mini flashlight, a roll of duct tape, bandage packets, earplugs in a small container, and a deck of cards in a red case. The items radiate outward from the box in an organized arc, styled like a high-end gift editorial. The background is warm, soft, cream-ivory (#F9F3EC). The box itself is centered-left in the frame. At the top of the image, bold text in large modern condensed sans-serif: "NOT ANOTHER GIFT CARD." in deep navy blue (#1A2A4A), spanning 80% of the image width. Just below in smaller, lighter sans-serif: "The graduation gift they'll reach for every week." At the bottom-right, small badge text: "100+ items · $100". Soft, warm, directional lighting from the upper-left, creating gentle highlights on the ribbon bow and multitool, with subtle shadows falling right. Warm daylight color temperature. Eye level, slightly elevated camera angle (15 degrees). Medium depth of field — items and box sharp, background clean but soft. Premium DTC gift brand aesthetic, editorial styling, clean and aspirational. Color palette: cream background (#F9F3EC), navy text (#1A2A4A), warm gold ribbon accent (#C9A84C). Do not include: any visible brand logos of competitors, more than one box, excessive clutter, product that looks mass-produced or clinical, any gift bows that look cheap or plastic. --ar 4:5
 
 ---
 
-## Gemini Generation URLs
-1. **Concept 1:** TBD
-2. **Concept 2:** TBD
-3. **Concept 3:** TBD
-4. **Concept 4:** TBD
-5. **Concept 5:** TBD
+### Concept 2: The 2 AM Scenario
+- **Type:** Nightmare Scenario
+- **Score:** 22/25 (Emotional: 5, Scroll-Stop: 4, Brand: 5, Differentiation: 4, Feasibility: 4)
+- **Strategic Rationale:** The 2 AM sick scenario is the single most emotionally potent use case in the research — appearing in the majority of positive reviews and parent testimonials. This is the foundational fear that PrepPack directly resolves. The cold-to-warm visual split mirrors the emotional arc from unprepared anxiety to prepared relief.
+- **Ad Copy:** "2 AM. FEVER. HEALTH CENTER CLOSED." / "PrepPack: because that call doesn't have to happen." / Badge: "100+ items. Always ready."
+- **File:** Concept2_2AM_Scenario.png
+- **Gemini URL:** [TBD after generation]
+- **NanoBanana Prompt:**
+Dramatic lifestyle narrative image for a 4:5 vertical ad. The top 55% of the image shows a dark, atmospheric dorm room scene at 2 AM: a college student sitting on a bed in a dark room, phone illuminating their silhouette with cold blue-white glow, the phone screen showing the time 2:02 AM. The ambient room is deep dark navy-charcoal (#0D1B2A) with only the phone light and a faint yellow hallway glow under the door. No face is distinguishable — only a silhouetted figure holding a glowing phone. A narrow visual gradient band transitions from cold charcoal (top) to warm amber (bottom). The bottom 35% transitions to a warm, hopeful scene: the same dorm room nightstand showing a neatly organized PrepPack open box with warm desk lamp light (#F4A261 amber glow) — a digital thermometer, Advil blister pack, and electrolyte powder stick pack visible and organized. At the top of the image, bold condensed white sans-serif with a slight drop shadow: "2 AM. FEVER. HEALTH CENTER CLOSED." Below in slightly smaller warm-toned text: "PrepPack has them covered." Small bottom badge: "100+ items · $100". The dramatic contrast between cold blue isolation (top) and warm amber preparedness (bottom) creates the emotional before/after. Commercial narrative photography, cinematic quality, 4:5 vertical portrait. Do not include: full distinguishable face of any person, standard red cross first aid kit, clinical white plastic first aid boxes, hospital imagery, blood or injury imagery. --ar 4:5
+
+---
+
+### Concept 3: The Parent Thank-You Text
+- **Type:** Testimonial / Review
+- **Score:** 22/25 (Emotional: 5, Scroll-Stop: 4, Brand: 5, Differentiation: 4, Feasibility: 4)
+- **Strategic Rationale:** The emotional payoff that Worried Mom persona is buying is not the kit — it's the text message she gets back from her student. This concept shows the end result (the text) which directly mirrors the #1 emotional driver (peace of mind). No competitor runs this angle, and it's deeply authentic to the voice-of-customer data showing students becoming "dorm heroes."
+- **Ad Copy:** Phone text: "Mom, that kit saved me today everyone on my floor wanted to use it" / "The text every parent wants to receive." / Badge: "PrepPack — built for this."
+- **File:** Concept3_Parent_Thankyou_Text.png
+- **Gemini URL:** [TBD after generation]
+- **NanoBanana Prompt:**
+Warm lifestyle product photography featuring a close-up of a parent's hands holding a smartphone, the phone screen showing a heartwarming text message thread. The phone screen displays a simple two-message exchange: an outgoing green bubble reading "Thinking of you - hope your week is going great!" followed by an incoming blue bubble reading "Mom that kit saved me today! Everyone on my floor wanted to use it." The phone is held at a gently elevated angle over a warm kitchen counter — adult hands visible wrapping around the sides, warm skin tones, no distinguishing face features. Soft bokeh background showing the corner of a kitchen counter with a ceramic mug of coffee, natural morning light through a window, warm domestic atmosphere. Warm golden-beige color temperature (#F5E6D3). Depth of field: phone screen and text bubbles are tack-sharp, background falls to smooth creamy blur. Below the phone, resting on the wooden kitchen counter surface slightly out of focus but clearly identifiable: a clean white PrepPack box with navy blue branding. At the bottom of the image, elegant thin sans-serif text in dark navy: "The text every parent wants to receive." Small badge below: "PrepPack - 100+ items - $100". Soft, warm, natural window light from the left. Eye-level camera angle, slightly above. Intimate, personal, editorial lifestyle photography in the style of premium DTC parent brands. Color palette: warm cream (#F5E6D3), warm navy (#1A2A4A), soft natural wood tones. Do not include: overly dramatic phone angle, dark backgrounds, clinical or cold color tones, any competitor brand boxes, text on the phone screen that is illegible or distorted, clearly identifiable faces, multiple phones. --ar 4:5
+
+---
+
+### Concept 4: Campus Health Closes at 5
+- **Type:** Pain Agitation
+- **Score:** 22/25 (Emotional: 5, Scroll-Stop: 4, Brand: 5, Differentiation: 5, Feasibility: 3)
+- **Strategic Rationale:** Directly rebuts the #6 objection ("my campus has a health center") with visceral, unavoidable truth: health centers close. This angle is uniquely owned by PrepPack — no competitor runs it, and it perfectly positions PrepPack as the solution for the hours when nothing else is available. The cold-to-warm color split creates instant scroll-stop power.
+- **Ad Copy:** "CAMPUS HEALTH CLOSES AT 5." / "Colds and fevers don't." / "PrepPack is ready when they're not."
+- **File:** Concept4_Campus_Health_Closes.png
+- **Gemini URL:** [TBD after generation]
+- **NanoBanana Prompt:**
+Dramatic commercial photography with extreme visual contrast in a 4:5 vertical portrait format. The top half of the image: a stark, close-up of an institutional analog wall clock with the hands pointing to exactly 5:00, rendered in cold, clinical tones. The clock face is white with black numerals, mounted on a beige institutional wall. Behind the clock and slightly blurred: a corridor with a frosted glass door panel and a simple sign that reads "CLOSED". Cold, harsh fluorescent lighting. Color palette: cold clinical white (#F5F5F5), stainless chrome (#C0C8D0), institutional beige (#E8E4DC). Below a clean horizontal dividing line, the bottom half transitions completely: a warm, inviting dorm room desk scene under a soft amber desk lamp. The PrepPack box is open on the wooden desk, warmly lit (#F4A261 amber glow) — digital thermometer, Advil blister pack, cold medicine, and electrolyte powder stick pack visible and organized. The warm light wraps the items in a reassuring, hopeful glow. At the very top, large bold condensed white sans-serif: "CAMPUS HEALTH CLOSES AT 5." In the middle transition zone, medium-weight charcoal sans-serif: "Colds and fevers don't." At the bottom in clean cream sans-serif: "PrepPack is ready when they're not." Commercial photography with cinematic color contrast. Do not include: any identifiable real university names or logos, full human faces, standard red plastic first aid kits, emergency room or ambulance imagery, blood or injury, imagery suggesting serious medical emergency. --ar 4:5
+
+---
+
+### Concept 5: Peace of Mind, Packed
+- **Type:** Lifestyle / Aspirational
+- **Score:** 21/25 (Emotional: 5, Scroll-Stop: 3, Brand: 5, Differentiation: 3, Feasibility: 5)
+- **Strategic Rationale:** "Peace of mind" is the #1 verbatim purchase driver — appearing in 60%+ of positive reviews across the category. This awareness-stage lifestyle ad presents the full product in its most aspirational light, establishing brand identity and the comprehensive four-category story. A beautiful organized flat lay demonstrates product depth and quality at a glance, addressing the "I can't see what's in it" objection simultaneously.
+- **Ad Copy:** "PEACE OF MIND. PACKED." / "100+ items for everything they'll face." / "$100 · Free shipping"
+- **File:** Concept5_Peace_of_Mind_Packed.png
+- **Gemini URL:** [TBD after generation]
+- **NanoBanana Prompt:**
+Premium overhead flat-lay product photography of the PrepPack college preparedness kit on a warm cream linen surface, shot from directly above at 90 degrees. The PrepPack box — a clean, modern white premium box with navy blue PrepPack branding text — is positioned center of the frame, open with the lid propped against it. Radiating from the box in an organized, beautiful arrangement with intentional spacing between each group, four distinct clusters of items: Top-left cluster (First Aid): digital thermometer in black case, two blister packs of pain reliever, small tube of ointment, colorful bandage packets, alcohol wipe packets. Top-right cluster (Tools): black foldable multitool, small silver flashlight, mini scissors, roll of black duct tape, tiny super glue tube, yellow measuring tape. Bottom-left cluster (Safety): compact silver personal safety alarm with keyring, small black flashlight, bright orange emergency whistle, folded silver emergency foil blanket. Bottom-right cluster (Comfort): teal-green compact fleece blanket folded, white earplugs in round case, navy blue sleep mask, deck of red playing cards, electrolyte powder stick pack. Soft, even, diffused warm studio light with gentle directional key light from upper-left. All items are tack-sharp. Surface is warm cream linen (#F9F3EC). Clean negative space between item groups. At the top 18% of the image, bold condensed navy sans-serif: "PEACE OF MIND. PACKED." (#1A2A4A). Below in lighter-weight sans-serif: "100+ items for everything they'll face." Bottom-right corner badge: "$100 - Free shipping". Premium editorial DTC aesthetic. Clean, warm, organized. Overhead flat-lay, 90-degree camera angle. Do not include: messy or chaotic arrangement, competing brand items, red cross symbols or clinical first aid box imagery, items that look cheap or plastic toy grade, promotional stickers from other brands. --ar 4:5
+
+---
+
+## Concept Scoring Summary (All 15 Generated)
+
+| Rank | Concept | Type | Score |
+|---|---|---|---|
+| 1 | Gift That Gets Used Every Week | Gift Angle | 23/25 |
+| 2 | The 2 AM Scenario | Nightmare Scenario | 22/25 |
+| 3 | Parent Thank-You Text | Testimonial | 22/25 |
+| 4 | Campus Health Closes at 5 | Pain Agitation | 22/25 |
+| 5 | Peace of Mind, Packed | Lifestyle/Aspirational | 21/25 |
+| 6 | 4 Kits in 1 | Features & Benefits | 21/25 |
+| 7 | Cornell EMS Authority | Authority/Trust | 21/25 |
+| 8 | $165 vs. $100 Comparison | Comparison | 20/25 |
+| 9 | The Dorm Hero | Lifestyle | 19/25 |
+| 10 | The Forgetting Montage | Pain Agitation | 19/25 |
+| 11 | Competitor Checklist | Comparison | 19/25 |
+| 12 | Before & After | Before & After | 19/25 |
+| 13 | UGC Dorm Unboxing | UGC-Style | 19/25 |
+| 14 | Move-In Day Done | Seasonal | 18/25 |
+| 15 | What's Inside Flat Lay | Features | 18/25 |
+
+Diversity check: 5 different ad types (Gift, Nightmare, Testimonial, Pain Agitation, Lifestyle)
+Funnel coverage: Awareness (Concept 5), Consideration (Concepts 1, 4), Conversion (Concepts 2, 3)
+
+---
 
 ## Research Dossier Used
-`Brands/PrepPack/research/PrepPack — Deep Research Dossier.docx`
-(Cloned from github.com/Nsf34/claude-skills, February 18, 2026)
+PrepPack — Deep Research Dossier.docx
+GitHub: https://github.com/Nsf34/claude-skills/tree/main/Brands/PrepPack/research/
